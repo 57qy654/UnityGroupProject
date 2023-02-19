@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            DestroyImmediate(gameObject)
+            DestroyImmediate(gameObject);
         }
         else
         {
@@ -18,14 +18,15 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // do not destroy game object when another scene is loaded
             // will maintain game manager as you pass through levels
         }
+    }
 
-        private void OnDestroy()
+    private void OnDestroy()
+    {
+        if (Instance == this)
         {
-            if (Instance == this)
-            {
-                Instance = null; 
-            }
+            Instance = null; 
         }
+        
     }
 
 }
