@@ -11,6 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private float inputAxis;
 
     public float moveSpeed = 8f;
+    public float maxJumpHeight = 5f;
+    public float maxJumpTime = 1f;
+
+    public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2);
+
+    public bool grounded { get; private set; }
+    public bool jumping { get; private set; }
 
     private void Awake()
     {
@@ -20,7 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        grounded = rigidbody.Raycast(Vector2.down);
+
         HorizontalMovement();
+
+        if (grounded)
+        {
+            GroundedMovement();
+        }
+
+        ApplyGravity();
     }
 
 
@@ -30,6 +47,27 @@ public class PlayerMovement : MonoBehaviour
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
     }
 
+    private void GroundedMovement()
+    {
+
+        velocity.y = Mathf.Max(velocity.y, 0f);
+        jumping = velocity.y > 0f;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            velocity.y = jumpForce;
+            jumping = true;
+        }
+    }
+
+    private void ApplyGravity()
+    {
+        bool falling = velocity.y < 0f || !Input.GetButton("Jump");
+        float multiplier = falling ? 2f : 1f;
+
+        velocity.y += gravity * multiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
+    }
 
     private void FixedUpdate()
     {
