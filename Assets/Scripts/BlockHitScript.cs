@@ -19,7 +19,7 @@ public class BlockHitScript : MonoBehaviour
             }
         }
 
-        StartCoroutine(Animate());
+        
     }
 
     private void Hit()
@@ -31,7 +31,9 @@ public class BlockHitScript : MonoBehaviour
         if (maxHits == 0)
         {
             spriteRenderer.sprite = emptyBlock;
-        }  
+        }
+
+        StartCoroutine(Animate());
     }
 
     private IEnumerator Animate()
