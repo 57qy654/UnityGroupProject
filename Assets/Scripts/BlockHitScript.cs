@@ -25,6 +25,7 @@ public class BlockHitScript : MonoBehaviour
     private void Hit()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = true;
 
         maxHits--;
 
