@@ -45,7 +45,11 @@ public class Player : MonoBehaviour
     // function that kills mario
     private void Death()
     {
-        // TODO
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = false;
+        deathAnimation.enabled = true; // turns on death animation
+
+        GameManager.Instance.ResetLevel(3f); // resets level after 3 seconds of death from the game manager
     }
 
 }
