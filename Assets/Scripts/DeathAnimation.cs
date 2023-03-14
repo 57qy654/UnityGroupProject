@@ -16,7 +16,7 @@ public class DeathAnimation : MonoBehaviour
     // when death animation is enabled
     private void OnEnable()
     {
-        UpdateSprite();                                         // start at 53:25 on video
+        UpdateSprite();                                         
         DisablePhysics();
         StartCoroutine(Animate());
     }
@@ -27,7 +27,7 @@ public class DeathAnimation : MonoBehaviour
         spriteRenderer.enabled = true; // enables sprite renderer
         spriteRenderer.sortingOrder = 10; 
 
-        if (spriteRenderer != null)
+        if (deadSprite != null)
         {
             spriteRenderer.sprite = deadSprite;
         }
@@ -48,6 +48,7 @@ public class DeathAnimation : MonoBehaviour
         // disables custom movement scripts
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();
         EntityMovement entityMovement = GetComponent<EntityMovement>();
+
         if (playerMovement != null)
         {
             playerMovement.enabled = false;
@@ -68,7 +69,7 @@ public class DeathAnimation : MonoBehaviour
 
         Vector3 velocity = Vector3.up * jumpVelocity;   // establish velocity vector
 
-        while (elapsed < duratiion) // while time is < duration continue animating
+        while (elapsed < duration) // while time is < duration continue animating
         {
             transform.position += velocity * Time.deltaTime; // changing position over time
             velocity.y += gravity * Time.deltaTime;
