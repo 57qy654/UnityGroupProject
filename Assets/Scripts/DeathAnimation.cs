@@ -70,6 +70,9 @@ public class DeathAnimation : MonoBehaviour
 
         while (elapsed < duratiion) // while time is < duration continue animating
         {
+            transform.position += velocity * Time.deltaTime; // changing position over time
+            velocity.y += gravity * Time.deltaTime;
+            elapsed += Time.deltaTime;
             yield return null;
         }
     }
