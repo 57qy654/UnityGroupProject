@@ -73,5 +73,9 @@ public class Koopa : MonoBehaviour
         movement.speed = shellSpeed;
         movement.enabled = true;
 
+        gameObject.layer = LayerMask.NameToLayer("Shell"); // updating shell layer, will allow collisions between enemies & shell to occur
+
     }
+
+
 }
