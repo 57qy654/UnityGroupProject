@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     {
         deathAnimation = GetComponent<DeathAnimation>();
     }
+
     // function that specifies that mario was hit by something
     public void Hit()
     {
