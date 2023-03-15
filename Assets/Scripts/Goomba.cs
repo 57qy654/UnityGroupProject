@@ -11,9 +11,15 @@ public class Goomba : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
         {
+            Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
+
             if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
             {
                 Flatten();
+            }
+            else
+            {
+                player.Hit();
             }
         }
     }
