@@ -196,3 +196,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shellSprite: {fileID: 21300000, guid: f882caca8db1d9547be2c030f5a6b82e, type: 3}
+  shellSpeed: 12
