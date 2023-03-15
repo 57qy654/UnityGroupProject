@@ -24,6 +24,15 @@ public class Goomba : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) //checks to see what trigger goomba enters into
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Shell")) // checks to see if goomba enters the shell trigger zone
+        {
+            Hit();
+        }
+
+    }
+
     // flatten method / death of goomba
     private void Flatten()
     {
@@ -32,5 +41,13 @@ public class Goomba : MonoBehaviour
         GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
         GetComponent<SpriteRenderer>().sprite = flatSprite; // updates sprite to flat goomba
         Destroy(gameObject, 0.5f); // destroys goomba after half a second, so you are able to see flat goomba
+    }
+
+    private void Hit()
+    {
+        GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
+        GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills goomba and does the death animation
+        Destroy(gameObject, 3f); // destroy dead goomba after 3 seconds
+
     }
 }

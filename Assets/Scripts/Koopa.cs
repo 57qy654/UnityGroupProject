@@ -45,7 +45,10 @@ public class Koopa : MonoBehaviour
 
             }
         }
-
+        else if (!shelled && other.gameObject.layer == LayerMask.NameToLayer("Shell")) // if koopa is not shelled and collides with another shell
+        {
+            Hit(); // koopa dies
+        }
     }
 
     // koopa hides in shell when mario jumps on him
@@ -77,5 +80,25 @@ public class Koopa : MonoBehaviour
 
     }
 
+    private void Hit()
+    {
+        GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
+        GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills koopa and does the death animation
+        Destroy(gameObject, 3f); // destroy dead koopa after 3 seconds
 
+    }
+
+    /*
+     
+    extra option to add if you want that destroys koopa shell if it goes out of vision
+    private void OnBecameInvisible()
+    {
+        if (shellPushed)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    */
 }
