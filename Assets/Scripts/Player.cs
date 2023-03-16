@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
     // references to the big mario and small mario sprite renderer 
     public PlayerSpriteRenderer smallRenderer;
     public PlayerSpriteRenderer bigRenderer;
+    private PlayerSpriteRenderer activeRenderer;
 
     // reference to the DeathAnimation script
     private DeathAnimation deathAnimation;
+    // reference to mario's capsule collider
+    private CapsuleCollider2D capsuleCollider;
 
     // determines if mario is in big version or not
     public bool big => bigRenderer.enabled;
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         deathAnimation = GetComponent<DeathAnimation>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // function that specifies that mario was hit by something
@@ -37,12 +41,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // function that shrinks mario 
-    private void Shrink()
-    {
-        // TODO
-    }
-
     // function that kills mario
     private void Death()
     {
@@ -51,6 +49,57 @@ public class Player : MonoBehaviour
         deathAnimation.enabled = true; // turns on death animation
 
         GameManager.Instance.ResetLevel(3f); // resets level after 3 seconds of death from the game manager
+    }
+
+    // function that grows mario
+    public void Grow()
+    {
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = true;
+        activeRenderer = bigRenderer;
+
+        capsuleCollider.size = new Vector2(1f, 2f);
+        capsuleCollider.offset = new Vector2(0f, 0.5f);
+
+        StartCoroutine(ScaleAnimation());
+
+    }
+
+    // function that shrinks mario 
+    private void Shrink()
+    {
+        smallRenderer.enabled = true;
+        bigRenderer.enabled = false;
+        activeRenderer = smallRenderer;
+
+        capsuleCollider.size = new Vector2(1f, 1f);
+        capsuleCollider.offset = new Vector2(0f, 0f);
+
+        StartCoroutine(ScaleAnimation());
+    }
+
+    private IEnumerator ScaleAnimation()
+    {
+        float elapsed = 0f;
+        float duration = 0.5f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                smallRenderer.enabled = !smallRenderer.enabled;
+                bigRenderer.enabled = !smallRenderer.enabled;
+            }
+
+            yield return null;
+        }
+
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = false;
+
+        activeRenderer.enabled = true;
     }
 
 }
