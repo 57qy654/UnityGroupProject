@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 7036668653200782311}
   - component: {fileID: 4838330248952424702}
   - component: {fileID: 5299672310558102206}
-  m_Layer: 7
+  - component: {fileID: 2627003709458420646}
+  - component: {fileID: -3709360677024356053}
+  - component: {fileID: 5555364868044485393}
+  m_Layer: 8
   m_Name: 1upMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,3 +153,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2627003709458420646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823575920443522234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047975fa4e0224a2c8a68f7d85315d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3709360677024356053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823575920443522234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c0a834f8ed38d49b8a63230e296e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 1, y: 0}
+--- !u!114 &5555364868044485393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8823575920443522234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8722cec18d7440968ca0d00dd9753a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1

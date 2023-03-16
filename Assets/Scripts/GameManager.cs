@@ -84,4 +84,9 @@ public class GameManager : MonoBehaviour
     {
         NewGame(); // restarts the game
     }
+
+    public void AddLife()
+    {
+        lives++;
+    }
 }
