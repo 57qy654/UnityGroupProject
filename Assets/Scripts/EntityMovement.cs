@@ -1,6 +1,3 @@
-// William Boguslawski
-// Created 3/13/2023
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
