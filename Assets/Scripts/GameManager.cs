@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 60; // sets the target framerate to 60fps
+
         NewGame(); // creates new game when its started
     }
 

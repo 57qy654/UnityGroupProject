@@ -18,7 +18,11 @@ public class Koopa : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
 
-            if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on koopa head
+            if (player.starpower) // checks if the player is in starpower, if so, hits koopa
+            {
+                Hit();
+            }
+            else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on koopa head
             {
                 EnterShell();
             }
@@ -41,6 +45,16 @@ public class Koopa : MonoBehaviour
             else  // if shell is moving from a push and you touch it again then mario gets hit and dies, same with all other enemys
             {
                 Player player = other.GetComponent<Player>(); // create reference for player / mario
+
+                if (player.starpower) // checks if the player is in starpower, if so, hits koopa shell
+                {
+                    Hit(); 
+                }
+                else
+                {
+                    player.Hit();
+                }
+
                 player.Hit();
 
             }

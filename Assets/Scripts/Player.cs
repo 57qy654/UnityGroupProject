@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     // determines if mario is in big version or not
     public bool big => bigRenderer.enabled;
     public bool small => smallRenderer.enabled;
+    public bool starpower { get; private set; }
 
     // determines if mario is in death animation or not
     public bool dead => deathAnimation.enabled;
@@ -26,19 +27,25 @@ public class Player : MonoBehaviour
     {
         deathAnimation = GetComponent<DeathAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        activeRenderer = smallRenderer;
     }
 
     // function that specifies that mario was hit by something
     public void Hit()
     {
-        if (big)
+
+        if (!starpower)
         {
-            Shrink();
+            if (big)
+            {
+                Shrink();
+            }
+            else
+            {
+                Death();
+            }
         }
-        else
-        {
-            Death();
-        }
+        
     }
 
     // function that kills mario
@@ -100,6 +107,34 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = false;
 
         activeRenderer.enabled = true;
+    }
+
+    // method for starpower power up
+    public void StarPower(float duration = 10f)
+    {
+        StartCoroutine(StarpowerAnimation(duration));
+    }
+
+    private IEnumerator StarpowerAnimation(float duration)
+    {
+        starpower = true;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                activeRenderer.spriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+            }
+
+            yield return null;
+        }
+
+        activeRenderer.spriteRenderer.color = Color.white;
+        starpower = false;
     }
 
 }

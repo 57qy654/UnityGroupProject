@@ -45,7 +45,7 @@ public class PowerUp : MonoBehaviour
                 break;
 
             case Type.Starpower:
-                // TODO
+                player.GetComponent<Player>().StarPower();
                 break;
         }
 
