@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
         this.stage = stage;
 
         SceneManager.LoadScene($"{world}-{stage}"); // loads the given stage level
+        //SceneManager.LoadScene(SceneManager.CurrentScene.BuildIndex); // loads the given stage level
+
     }
 
     public void NextLevel()
@@ -92,3 +94,5 @@ public class GameManager : MonoBehaviour
         lives++;
     }
 }
+
+
