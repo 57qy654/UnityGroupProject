@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7424162410367947552}
   - component: {fileID: 7576114066168371976}
   - component: {fileID: 2092615481781157583}
+  - component: {fileID: -1462754219083286085}
   m_Layer: 8
   m_Name: StarPower
   m_TagString: Untagged
@@ -135,7 +136,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -164,3 +165,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+--- !u!114 &-1462754219083286085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484683835420179427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2e7915ce3dd450abf39bba7326ef3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  direction: {x: -1, y: 0}
+  bounceForce: 500
+  maxBounceHeight: 50
