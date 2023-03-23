@@ -13,7 +13,7 @@ public class SuperGoomba : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
 
-            if (player.starpower) // checks if the player is in starpower, if so, hits goomba
+            if (collision.transform.DotTest(transform, Vector2.down) && player.starpower) // checks if the player is in starpower, if so, hits goomba
             {
                 Hit();
             }
