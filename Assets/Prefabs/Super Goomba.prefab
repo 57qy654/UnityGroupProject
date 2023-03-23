@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3841044909367716484}
   - component: {fileID: 3333939128928868968}
   - component: {fileID: 1049623581045830409}
+  - component: {fileID: 3577847729030931402}
+  - component: {fileID: 6402780734580183382}
+  - component: {fileID: 5899485264948110365}
   m_Layer: 6
   m_Name: Super Goomba
   m_TagString: Untagged
@@ -140,3 +143,44 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 56edcd414648ccd46810c8fb8d71f38f, type: 3}
   - {fileID: 21300000, guid: 2ecd82c9f9059ce4d90acf918c441096, type: 3}
   framerate: 0.25
+--- !u!114 &3577847729030931402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191269956295107110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c0a834f8ed38d49b8a63230e296e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  direction: {x: -1, y: 0}
+--- !u!114 &6402780734580183382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191269956295107110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e19d41924431bd4faa8857754cb886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flatSprite: {fileID: 21300000, guid: dceda839fbcc74441aef5f93f32bdc1a, type: 3}
+--- !u!114 &5899485264948110365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191269956295107110}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd9327628b68354ab8bbb15a6efef0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9073579436142957669}
+  deadSprite: {fileID: 0}
