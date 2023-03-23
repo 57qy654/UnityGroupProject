@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class StarPowerMovementScript : MonoBehaviour
 {
+    // sets the speed
     public float speed = 1f;
+    // The direction in which the object moves
     public Vector2 direction = Vector2.left;
 
     private new Rigidbody2D rigidbody;
@@ -17,22 +19,26 @@ public class StarPowerMovementScript : MonoBehaviour
 
     private void Awake()
     {
+        // Get the Rigidbody2D component and disable this script on awake
         rigidbody = GetComponent<Rigidbody2D>();
         enabled = false;
     }
 
     private void OnBecameVisible()
     {
+        // Enables script when the object becomes visible
         enabled = true;
     }
 
     private void OnBecameInvisible()
     {
+        // Disables script when the object becomes invisible
         enabled = false;
     }
 
     private void OnEnable()
     {
+
         rigidbody.WakeUp();
         startingY = transform.position.y;
     }
@@ -47,11 +53,14 @@ public class StarPowerMovementScript : MonoBehaviour
     {
         if (!isBouncing)
         {
+            // If the object is not currently bouncing, calculate its velocity based on its speed, direction, and the acceleration due to gravity
             velocity.x = direction.x * speed;
             velocity.y += Physics2D.gravity.y * Time.fixedDeltaTime;
 
+            // Move the object based on its current velocity
             rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
 
+            // If the object is colliding with the ground, set isBouncing to true and apply a bounce force to the object
             if (rigidbody.Raycast(Vector2.down))
             {
                 isBouncing = true;
@@ -61,6 +70,7 @@ public class StarPowerMovementScript : MonoBehaviour
         }
         else
         {
+            // If the object is currently bouncing, calculate its bounce velocity based on the maximum bounce height and the force applied to it
             float height = transform.position.y - startingY;
             if (height < maxBounceHeight)
             {
@@ -69,6 +79,7 @@ public class StarPowerMovementScript : MonoBehaviour
             }
             else
             {
+                // If the object has reached its maximum bounce height, set isBouncing to false
                 isBouncing = false;
             }
         }

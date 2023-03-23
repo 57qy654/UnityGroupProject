@@ -32,16 +32,20 @@ public class PowerUp : MonoBehaviour
         // being collected
         switch (type)
         {
+
             case Type.Coin:
                 // TODO
                 break;
 
             case Type.ExtraLife:
                 GameManager.Instance.AddLife();
+                FindObjectOfType<AudioManager>().Play("1Up");
+                Debug.Log("AudioManager object active: " + FindObjectOfType<AudioManager>().gameObject.activeSelf);
                 break;
 
             case Type.MagicMushroom:
                 player.GetComponent<Player>().Grow();
+                FindObjectOfType<AudioManager>().Play("MagicMushroom");
                 break;
 
             case Type.Starpower:
