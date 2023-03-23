@@ -15,7 +15,7 @@ public class SuperGoomba : MonoBehaviour
 
             if (collision.transform.DotTest(transform, Vector2.down) && player.starpower) // checks if the player is in starpower, if so, hits goomba
             {
-                Hit();
+                Flatten();
             }
             else if (collision.transform.DotTest(transform, Vector2.down) && player.big) // checks if player is big and lands on goomba head
             {
