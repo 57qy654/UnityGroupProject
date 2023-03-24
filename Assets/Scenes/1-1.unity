@@ -3482,6 +3482,16 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: BigJump
+    clip: {fileID: 8300000, guid: 80dd5e44ee2f041ab83b8fc6c59b1c70, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: SmallJump
+    clip: {fileID: 8300000, guid: 2fa1e436f0d724cc192ed1454191ec76, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &711124831
 Transform:
   m_ObjectHideFlags: 0
@@ -4028,11 +4038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7238294711989144905, guid: c8f9344ce78f1411092e8f997d8a8a13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.57
+      value: 8.97
       objectReference: {fileID: 0}
     - target: {fileID: 7238294711989144905, guid: c8f9344ce78f1411092e8f997d8a8a13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6
+      value: 7.19
       objectReference: {fileID: 0}
     - target: {fileID: 7238294711989144905, guid: c8f9344ce78f1411092e8f997d8a8a13, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9090,7 +9100,7 @@ GameObject:
   - component: {fileID: 1935438829}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

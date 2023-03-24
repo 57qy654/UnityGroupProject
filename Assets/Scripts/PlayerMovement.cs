@@ -6,6 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     private Camera camera;
     private  Rigidbody2D rigidbody;
+    public Player player;
+
+
 
     private Vector2 velocity;
     private float inputAxis;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         camera = Camera.main;
+        player = GetComponent<Player>();
     }
 
     private void Update()
@@ -72,10 +76,20 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = Mathf.Max(velocity.y, 0f);
         jumping = velocity.y > 0f;
 
+
         if (Input.GetButtonDown("Jump"))
         {
             velocity.y = jumpForce;
             jumping = true;
+            if (player.smallRenderer.enabled == true)
+            {
+                FindObjectOfType<AudioManager>().Play("SmallJump");
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("BigJump");
+            }
+                
         }
     }
 

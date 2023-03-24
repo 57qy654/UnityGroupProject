@@ -84,6 +84,8 @@ public class StarPowerMovementScript : MonoBehaviour
             }
         }
 
+        
+
         Debug.Log("Velocity: " + velocity);
     }
 
