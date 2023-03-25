@@ -112,29 +112,50 @@ public class Player : MonoBehaviour
     // method for starpower power up
     public void StarPower(float duration = 10f)
     {
+        
         StartCoroutine(StarpowerAnimation(duration));
+        StartCoroutine(StarpowerAudio(duration));
+
     }
 
     private IEnumerator StarpowerAnimation(float duration)
     {
         starpower = true;
+        
 
         float elapsed = 0f;
 
+       
+
         while (elapsed < duration)
         {
+            
             elapsed += Time.deltaTime;
 
             if (Time.frameCount % 4 == 0)
             {
                 activeRenderer.spriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+                FindObjectOfType<AudioManager>().Play("Starpower");
             }
+
+            
 
             yield return null;
         }
 
         activeRenderer.spriteRenderer.color = Color.white;
         starpower = false;
+        
     }
+
+    private IEnumerator StarpowerAudio(float duration)
+    {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("Starpower");
+        yield return new WaitForSeconds(duration);
+        audioManager.Stop("Starpower");
+    }
+
+
 
 }

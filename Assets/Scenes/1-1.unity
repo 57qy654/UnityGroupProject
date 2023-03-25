@@ -670,6 +670,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5910478287745748760, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 49ef7b9a481bb43ed885f81c314c4f5b, type: 3}
     - target: {fileID: 6855917859170148585, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_Name
       value: Mario
@@ -3489,6 +3493,21 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SmallJump
     clip: {fileID: 8300000, guid: 2fa1e436f0d724cc192ed1454191ec76, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Stomp
+    clip: {fileID: 8300000, guid: 32e5e0c9114bc43bd9e806e53daf5315, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Woo
+    clip: {fileID: 8300000, guid: 49ef7b9a481bb43ed885f81c314c4f5b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Starpower
+    clip: {fileID: 8300000, guid: 438e8a1be1271453d89b2330891d0339, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
