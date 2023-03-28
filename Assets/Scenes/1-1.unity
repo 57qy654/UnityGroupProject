@@ -3511,6 +3511,26 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: BlockHit
+    clip: {fileID: 8300000, guid: 2ea2564b9362a46a18b07afea7e17b20, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: StompKoopa
+    clip: {fileID: 8300000, guid: c53f760a5742349aa9f0572d930aa262, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ShellRicochet
+    clip: {fileID: 8300000, guid: 58baaf801de6f48608bdd3238fbac124, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MarioDies
+    clip: {fileID: 8300000, guid: b0fa18add732f4251837b32853004fc9, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &711124831
 Transform:
   m_ObjectHideFlags: 0

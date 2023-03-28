@@ -72,7 +72,8 @@ public class Koopa : MonoBehaviour
         GetComponent<EntityMovement>().enabled = false; // disables koopa movement
         GetComponent<AnimatedSprite>().enabled = false; // disables koopa animations
         GetComponent<SpriteRenderer>().sprite = shellSprite; // updates sprite to shell koopa
-        
+        FindObjectOfType<AudioManager>().Play("StompKoopa");
+
     }
 
     private void PushShell(Vector2 direction)

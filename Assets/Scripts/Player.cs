@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         deathAnimation.enabled = true; // turns on death animation
+        FindObjectOfType<AudioManager>().Play("MarioDies");
 
         GameManager.Instance.ResetLevel(3f); // resets level after 3 seconds of death from the game manager
     }
@@ -115,12 +116,14 @@ public class Player : MonoBehaviour
         
         StartCoroutine(StarpowerAnimation(duration));
         StartCoroutine(StarpowerAudio(duration));
+        
 
     }
 
     private IEnumerator StarpowerAnimation(float duration)
     {
         starpower = true;
+        
         
 
         float elapsed = 0f;

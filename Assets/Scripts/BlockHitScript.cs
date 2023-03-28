@@ -27,6 +27,8 @@ public class BlockHitScript : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
 
+        FindObjectOfType<AudioManager>().Play("BlockHit");
+
         maxHits--;
 
         if (maxHits == 0)
