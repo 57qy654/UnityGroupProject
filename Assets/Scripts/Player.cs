@@ -34,13 +34,17 @@ public class Player : MonoBehaviour
     public void Hit()
     {
 
+        bool shrunk = false;
         if (!starpower)
         {
             if (big)
             {
                 Shrink();
+                shrunk = true;
+                
             }
-            else
+            
+            if (!shrunk)
             {
                 Death();
             }
@@ -76,9 +80,11 @@ public class Player : MonoBehaviour
     // function that shrinks mario 
     private void Shrink()
     {
+        FindObjectOfType<AudioManager>().Play("PowerDown");
         smallRenderer.enabled = true;
         bigRenderer.enabled = false;
         activeRenderer = smallRenderer;
+        
 
         capsuleCollider.size = new Vector2(1f, 1f);
         capsuleCollider.offset = new Vector2(0f, 0f);

@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a592172269b44753a2df6d3e596b514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   moveSpeed: 8
   maxJumpHeight: 5
   maxJumpTime: 1

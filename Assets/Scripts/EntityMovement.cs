@@ -53,7 +53,8 @@ public class EntityMovement : MonoBehaviour
         // flips entity direction when they run into something
         if (rigidbody.Raycast(direction))
         {
-            direction = -direction;          
+            direction = -direction;
+            FindObjectOfType<AudioManager>().Play("ShellRicochet");
         }
 
         if (rigidbody.Raycast(Vector2.down))
