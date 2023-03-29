@@ -47,7 +47,6 @@ public class Goomba : MonoBehaviour
         GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
         GetComponent<SpriteRenderer>().sprite = flatSprite; // updates sprite to flat goomba
         Destroy(gameObject, 0.5f); // destroys goomba after half a second, so you are able to see flat goomba
-        FindObjectOfType<AudioManager>().Play("Stomp");
     }
 
     private void Hit()
