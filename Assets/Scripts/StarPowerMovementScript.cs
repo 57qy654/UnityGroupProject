@@ -1,6 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Newtonsoft.Json.Linq;
+    using Unity.VisualScripting;
+    using UnityEngine;
 
 public class StarPowerMovementScript : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class StarPowerMovementScript : MonoBehaviour
     public float maxBounceHeight = 10f;
     private float startingY;
     private float gravity = 9.8f;
+    private float groundLevel;
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class StarPowerMovementScript : MonoBehaviour
 
         rigidbody.WakeUp();
         startingY = transform.position.y;
+        groundLevel = startingY - maxBounceHeight;
     }
 
     private void OnDisable()
@@ -71,10 +75,10 @@ public class StarPowerMovementScript : MonoBehaviour
         else
         {
             // If the object is currently bouncing, calculate its bounce velocity based on the maximum bounce height and the force applied to it
-            float height = transform.position.y - startingY;
-            if (height < maxBounceHeight)
+            float distanceFromGround = Mathf.Abs(transform.position.y - groundLevel);
+            if (distanceFromGround < maxBounceHeight)
             {
-                float bounceVelocity = Mathf.Sqrt(2f * bounceForce * (maxBounceHeight - height));
+                float bounceVelocity = Mathf.Sqrt(2f * bounceForce * (maxBounceHeight - distanceFromGround));
                 velocity.y = bounceVelocity;
             }
             else
@@ -83,8 +87,6 @@ public class StarPowerMovementScript : MonoBehaviour
                 isBouncing = false;
             }
         }
-
-        
 
         Debug.Log("Velocity: " + velocity);
     }
@@ -103,6 +105,19 @@ public class StarPowerMovementScript : MonoBehaviour
 
             // Set isBouncing flag to true
             isBouncing = true;
+
+            // Calculate the ground level based on the current position and the maximum bounce height
+            groundLevel = transform.position.y - maxBounceHeight;
+
+            // Reset the starting Y position to the current position
+            startingY = transform.position.y;
         }
     }
+
 }
+
+
+
+
+
+
