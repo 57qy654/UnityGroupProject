@@ -69,7 +69,6 @@ public class Koopa : MonoBehaviour
     private void EnterShell()
     {
         shelled = true;
-        GetComponent<EntityMovement>().enabled = false; // disables koopa movement
         GetComponent<AnimatedSprite>().enabled = false; // disables koopa animations
         GetComponent<SpriteRenderer>().sprite = shellSprite; // updates sprite to shell koopa
         FindObjectOfType<AudioManager>().Play("StompKoopa");
@@ -94,6 +93,7 @@ public class Koopa : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Shell"); // updating shell layer, will allow collisions between enemies & shell to occur
 
     }
+
 
     private void Hit()
     {

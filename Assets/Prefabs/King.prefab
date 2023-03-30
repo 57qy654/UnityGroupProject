@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3582431928937391577}
   - component: {fileID: 3802380018660762672}
   - component: {fileID: -5906639204405858437}
+  - component: {fileID: 577579782512942015}
   m_Layer: 6
   m_Name: King
   m_TagString: Untagged
@@ -197,3 +198,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 319980717674841372}
   deadSprite: {fileID: 0}
+--- !u!114 &577579782512942015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7870292523415104931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df911e668e8ac5488d9276e87e90918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellSprite: {fileID: 21300000, guid: f882caca8db1d9547be2c030f5a6b82e, type: 3}
+  shellSpeed: 18
