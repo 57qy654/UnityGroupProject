@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
+        if (other.CompareTag("Player"))
         {
-            Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
+            Player player = other.GetComponent<Player>();
             player.Hit();
-         
         }
     }
 }
