@@ -7,12 +7,13 @@ public class Koopa : MonoBehaviour
     public Sprite shellSprite;
     public float shellSpeed = 12;
 
-    private bool shelled; // inficate if koopa is in shell or not
-    private bool shellPushed; // indicate if koopa shell is moving or not
+    protected bool shelled; // inficate if koopa is in shell or not
+    protected bool shellPushed; // indicate if koopa shell is moving or not
 
 
     // checks collision of koopa and player
-    private void OnCollisionEnter2D(Collision2D collision)
+    // private virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (!shelled && collision.gameObject.CompareTag("Player"))  // checks what koopa collides with, only relevant if not in shell
         {
@@ -69,6 +70,7 @@ public class Koopa : MonoBehaviour
     private void EnterShell()
     {
         shelled = true;
+        GetComponent<EntityMovement>().enabled = false; // disables koopa movement
         GetComponent<AnimatedSprite>().enabled = false; // disables koopa animations
         GetComponent<SpriteRenderer>().sprite = shellSprite; // updates sprite to shell koopa
         FindObjectOfType<AudioManager>().Play("StompKoopa");
@@ -94,8 +96,9 @@ public class Koopa : MonoBehaviour
 
     }
 
+ 
 
-    private void Hit()
+    protected void Hit()
     {
         GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
         GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills koopa and does the death animation

@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingOfSwamp : MonoBehaviour
+public class KingOfSwamp : Koopa
 {
-    public Sprite shellSprite;
-    public float shellSpeed = 15;
+    //public Sprite shellSprite;
+    //public float shellSpeed = 15;
 
     private float delayTime = 1.5f;
     private float delayTime2 = 2.0f;
-    private bool shelled; // inficate if koopa is in shell or not
-    private bool shellPushed; // indicate if koopa shell is moving or not
+    //private bool shelled; // inficate if koopa is in shell or not
+    //private bool shellPushed; // indicate if koopa shell is moving or not
 
 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -56,13 +56,6 @@ public class KingOfSwamp : MonoBehaviour
     }
 
 
-    private void Hit()
-    {
-        GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
-        GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills koopa and does the death animation
-        Destroy(gameObject, 3f); // destroy dead koopa after 3 seconds
-
-    }
 
 
     //EntityMovement movement = GetComponent<EntityMovement>();
