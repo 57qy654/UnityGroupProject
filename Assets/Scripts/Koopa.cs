@@ -55,7 +55,7 @@ public class Koopa : MonoBehaviour
                     player.Hit();
                 }
 
-                player.Hit();
+                //player.Hit();
 
             }
         }
