@@ -22,6 +22,7 @@ public class Goomba : MonoBehaviour
             else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
             {
                 Flatten();
+                FindObjectOfType<AudioManager>().Play("Stomp");
             }
             else
             {
