@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (velocity.x > 0f)
         {
-            transform.eulerAngles = Vector3.zero;
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if(velocity.x < 0f)
+        else if (velocity.x < 0f)
         {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
 
