@@ -30,6 +30,24 @@ public class IceBall : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         rb.velocity = new Vector2(velocity.x, -velocity.y);
+
+        if (col.collider.tag=="Enemy")
+        {
+            Destroy(col.gameObject);
+            Explode();
+        }
+
+        // deletes iceball when it comes in contact with a collider
+        if (col.contacts[0].normal.x!=0)
+        {
+            Explode();
+        }
+    }
+
+    // function to delete game objects
+    void Explode()
+    {
+        Destroy(this.gameObject);
     }
 
 }

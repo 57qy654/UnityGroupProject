@@ -11,6 +11,7 @@ public class PowerUp : MonoBehaviour
         ExtraLife,
         MagicMushroom,
         Starpower,
+        IcePower,
     }
 
     public Type type;
