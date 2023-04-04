@@ -52,6 +52,12 @@ public class PowerUp : MonoBehaviour
             case Type.Starpower:
                 player.GetComponent<Player>().StarPower();
                 break;
+
+           case Type.IcePower:
+                FindObjectOfType<AudioManager>().Play("MagicMushroom");
+                player.GetComponent<Player>().Ice();
+                break;
+                
         }
 
         // gets rid of the power up

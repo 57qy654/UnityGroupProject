@@ -7,9 +7,15 @@ public class ShootSomething : MonoBehaviour
 
     public GameObject projectile;
     public Vector2 velocity;
-    bool canShoot = true;
+    private bool canShoot = false;
     public Vector2 offset = new Vector2(1f, 0.1f);
     public float cooldown = 1f;
+
+    public bool CanShoot
+    {
+        get { return this.canShoot; }
+        set { this.canShoot = value; }
+    }
 
 
     // Start is called before the first frame update

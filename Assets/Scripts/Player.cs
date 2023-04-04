@@ -7,16 +7,19 @@ public class Player : MonoBehaviour
     // references to the big mario and small mario sprite renderer 
     public PlayerSpriteRenderer smallRenderer;
     public PlayerSpriteRenderer bigRenderer;
+    public PlayerSpriteRenderer iceRenderer;
     private PlayerSpriteRenderer activeRenderer;
 
     // reference to the DeathAnimation script
     private DeathAnimation deathAnimation;
     // reference to mario's capsule collider
     private CapsuleCollider2D capsuleCollider;
+    private ShootSomething canShoot;
 
     // determines if mario is in big version or not
     public bool big => bigRenderer.enabled;
     public bool small => smallRenderer.enabled;
+    public bool ice => iceRenderer.enabled;
     public bool starpower { get; private set; }
 
     // determines if mario is in death animation or not
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     {
         deathAnimation = GetComponent<DeathAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        canShoot = GetComponent<ShootSomething>();
         activeRenderer = smallRenderer;
     }
 
@@ -37,10 +41,17 @@ public class Player : MonoBehaviour
         bool shrunk = false;
         if (!starpower)
         {
+            if (ice)
+            {
+                DeIce();
+                return;
+            }
+
             if (big)
             {
                 Shrink();
                 shrunk = true;
+                
                 
             }
             
@@ -57,6 +68,7 @@ public class Player : MonoBehaviour
     {
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
+        iceRenderer.enabled = false;
         deathAnimation.enabled = true; // turns on death animation
         FindObjectOfType<AudioManager>().Play("MarioDies");
 
@@ -66,15 +78,36 @@ public class Player : MonoBehaviour
     // function that grows mario
     public void Grow()
     {
+        if (!iceRenderer.enabled)
+        {
+            smallRenderer.enabled = false;
+            iceRenderer.enabled = false;
+            bigRenderer.enabled = true;
+
+            activeRenderer = bigRenderer;
+
+            capsuleCollider.size = new Vector2(1f, 2f);
+            capsuleCollider.offset = new Vector2(0f, 0.5f);
+
+            StartCoroutine(ScaleAnimation());
+        }
+            
+
+    }
+
+    // function to change mario sprite to ice power
+    public void Ice()
+    {
         smallRenderer.enabled = false;
-        bigRenderer.enabled = true;
-        activeRenderer = bigRenderer;
+        bigRenderer.enabled = false;
+        iceRenderer.enabled = true;
+        activeRenderer = iceRenderer;
+        canShoot.CanShoot = true;
 
         capsuleCollider.size = new Vector2(1f, 2f);
         capsuleCollider.offset = new Vector2(0f, 0.5f);
 
-        StartCoroutine(ScaleAnimation());
-
+        StartCoroutine(IceAnimation());
     }
 
     // function that shrinks mario 
@@ -83,6 +116,7 @@ public class Player : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("PowerDown");
         smallRenderer.enabled = true;
         bigRenderer.enabled = false;
+        iceRenderer.enabled = false;
         activeRenderer = smallRenderer;
         
 
@@ -90,6 +124,23 @@ public class Player : MonoBehaviour
         capsuleCollider.offset = new Vector2(0f, 0f);
 
         StartCoroutine(ScaleAnimation());
+    }
+
+    // function to get rid of ice sprite
+    private void DeIce()
+    {
+        FindObjectOfType<AudioManager>().Play("PowerDown");
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = true;
+        iceRenderer.enabled = false;
+        activeRenderer = bigRenderer;
+        canShoot.CanShoot = false;
+
+        capsuleCollider.size = new Vector2(1f, 2f);
+        capsuleCollider.offset = new Vector2(0f, 0.5f);
+
+
+        StartCoroutine(IceAnimation());
     }
 
     private IEnumerator ScaleAnimation()
@@ -112,6 +163,32 @@ public class Player : MonoBehaviour
 
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
+        iceRenderer.enabled = false;
+
+        activeRenderer.enabled = true;
+    }
+
+    private IEnumerator IceAnimation()
+    {
+        float elapsed = 0f;
+        float duration = 0.5f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+
+            if (Time.frameCount % 4 == 0)
+            {
+                iceRenderer.enabled = !iceRenderer.enabled;
+                bigRenderer.enabled = !iceRenderer.enabled;
+            }
+
+            yield return null;
+        }
+
+        smallRenderer.enabled = false;
+        bigRenderer.enabled = false;
+        iceRenderer.enabled = false;
 
         activeRenderer.enabled = true;
     }

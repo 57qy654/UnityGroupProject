@@ -31,6 +31,7 @@ public class IceBall : MonoBehaviour
     {
         rb.velocity = new Vector2(velocity.x, -velocity.y);
 
+        // checks if iceball collides with an enemy and kills it if it does
         if (col.collider.tag=="Enemy")
         {
             Destroy(col.gameObject);
