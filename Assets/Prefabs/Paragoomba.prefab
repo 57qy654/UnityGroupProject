@@ -184,4 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flatSprite: {fileID: 0}
-  speed: 0
+  speed: 2.5
+  hunt: 0
+  huntingPoint: {fileID: 0}
