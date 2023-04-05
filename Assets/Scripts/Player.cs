@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
         StartCoroutine(IceAnimation());
     }
 
+    // animation for growing or shrinking
     private IEnumerator ScaleAnimation()
     {
         float elapsed = 0f;
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour
         activeRenderer.enabled = true;
     }
 
+    // animation for getting or losing ice power
     private IEnumerator IceAnimation()
     {
         float elapsed = 0f;

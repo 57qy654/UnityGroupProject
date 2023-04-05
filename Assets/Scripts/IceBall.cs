@@ -30,18 +30,22 @@ public class IceBall : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         rb.velocity = new Vector2(velocity.x, -velocity.y);
+        FindObjectOfType<AudioManager>().Play("IceHit");
 
         // checks if iceball collides with an enemy and kills it if it does
         if (col.collider.tag=="Enemy")
         {
+
             Destroy(col.gameObject);
             Explode();
+            FindObjectOfType<AudioManager>().Play("IceHit");
         }
 
         // deletes iceball when it comes in contact with a collider
         if (col.contacts[0].normal.x!=0)
         {
             Explode();
+            //FindObjectOfType<AudioManager>().Play("IceHit");
         }
     }
 
