@@ -8,7 +8,7 @@ public class Paragoomba : Goomba
     private GameObject player1;
     public float speed;
     public bool hunt = false;
-    public Transform huntingPoint; 
+    public float huntRadius = 34f; // radius to detect player
 
     // Start is called before the first frame update
     void Start()
@@ -22,24 +22,22 @@ public class Paragoomba : Goomba
         // if player isnt in sight dont hunt
         if (player1 == null)
             return;
-        // chase player if hunt == true
-        if (hunt == true)
-            Hunt();
-        // else go back to hunting point 
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
+        if (distanceToPlayer <= huntRadius)
+        {
+            hunt = true;
+        }
         else
-            TravelHuntPoint();
-        Turn();
+        {
+            hunt = false;
+        }
     }
 
     private void Hunt()
     {
         //moving enemy position
         transform.position = Vector2.MoveTowards(transform.position, player1.transform.position, speed * Time.deltaTime); // position of enemy and then the position the enemy needs to move to 
-    }
-
-    private void TravelHuntPoint()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, huntingPoint.position, speed * Time.deltaTime);
     }
 
     // turns enemy to not look weird 
@@ -57,6 +55,7 @@ public class Paragoomba : Goomba
         }
 
     }
+
 
 }
 
