@@ -32,6 +32,13 @@ public class Paragoomba : Goomba
         {
             hunt = false;
         }
+        if (hunt == true)
+        {
+            Hunt();
+        }
+        else
+            Turn();
+            
     }
 
     private void Hunt()
@@ -56,6 +63,10 @@ public class Paragoomba : Goomba
 
     }
 
+    public void FindPlayer(GameObject newPlayer)
+    {
+        player1 = newPlayer;
+    }
 
 }
 
