@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class HuntControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Paragoomba[] flyerArray; // an array in case you want more than 1 para goomba
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            foreach (Paragoomba enemy in flyerArray)
+            {
+                enemy.hunt = true;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            foreach (Paragoomba enemy in flyerArray)
+            {
+                enemy.hunt = false;
+            }
+        }
     }
 }
