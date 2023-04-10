@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
+
+
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +14,9 @@ public class GameManager : MonoBehaviour
     public int world { get; private set; } // public get, private set
     public int stage { get; private set; } 
     public int lives { get; private set; }
+    public int coins { get; private set; }
+    
+
 
 
     private void Awake()
@@ -45,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         lives = 3;
+        coins = 0;
 
         LoadLevel(1, 1); //creates a new game with given level and lives
     }
@@ -88,6 +96,8 @@ public class GameManager : MonoBehaviour
     {
         NewGame(); // restarts the game
     }
+
+    
 
     public void AddLife()
     {

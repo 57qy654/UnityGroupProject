@@ -35,7 +35,8 @@ public class PowerUp : MonoBehaviour
         {
 
             case Type.Coin:
-                // TODO
+                ScoreManager.Instance.AddCoin();
+                FindObjectOfType<AudioManager>().Play("Coin");
                 break;
 
             case Type.ExtraLife:
