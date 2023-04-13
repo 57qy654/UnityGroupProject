@@ -302,7 +302,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.6114416
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -583,6 +583,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 827637104963955051, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_Name
       value: Cerberus
