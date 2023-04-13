@@ -11,11 +11,13 @@ public class Spawner : MonoBehaviour
     public GameObject spawnerFinishGameObject;
     public float minTime; // The minimum time between spawns of enemys 
     public float maxTime; // The maximum time between spawns of enemys, choose how frequently enemies spawn
-    public bool canSpawn; // tells spawner if enemy can spawn
+    public bool canSpawn = true; // tells spawner if enemy can spawn
     public float spawnTime; // how long enemies spawn for
     public int enemiesPresent; // checks how many enemies are in
-    public bool permission;
+    //public bool permission;
     public float spawnRadius = 10f;
+    //bool isInvoking = true;
+
 
     GameObject currentPoint; // point where enemy spawns 
     int index;
@@ -23,6 +25,9 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
+        permission = true;
+
+
     }
 
 
@@ -30,18 +35,36 @@ public class Spawner : MonoBehaviour
     {
         if (player1 == null)
             return;
-
         float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
-        if (distanceToPlayer <= spawnRadius)
+
+        if (distanceToPlayer <= spawnRadius && )
         {
-            permission = true;
-            if (canSpawn)
+            if (permission == true)
             {
-                spawnTime -= Time.deltaTime; // acts as a count down
-                if (spawnTime < 0)
+                
+                Invoke("SpawnEnemy", 0.5f);
+                permission = false;
+                isInvoking = true;
+                distanceToPlayer = 64;
+
+                if (canSpawn)
                 {
-                    canSpawn = false;
+                    spawnTime -= Time.deltaTime; // acts as a count down
+                    if (spawnTime < 0)
+                    {
+                        canSpawn = false;
+                    }
                 }
+            }
+            
+        }
+        else
+        {
+            // Cancel the Invoke call if player is not in the spawn radius
+            if (isInvoking)
+            {
+                CancelInvoke("SpawnEnemy");
+                isInvoking = false;
             }
         }
 

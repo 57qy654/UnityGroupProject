@@ -15,7 +15,7 @@ public class GuardianOfHell : Goomba
     private Vector2 midPosition;
     private bool movingTowardsTarget = true;
     public int count = 0;
-
+    EntityMovement movement = GetComponent<EntityMovement>();
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -74,7 +74,6 @@ public class GuardianOfHell : Goomba
         }
         if (go == true)
         {
-            EntityMovement movement = GetComponent<EntityMovement>();
             movement.speed = 3f;
             StartCoroutine(EnemyPattern());
         }
