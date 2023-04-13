@@ -24,13 +24,13 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        // will spawn every 3 seconds
+        
         if (canSpawn)
         {
-            spawnTime -= Time.deltaTime;
+            spawnTime -= Time.deltaTime; // acts as a count down
             if (spawnTime < 0)
             {
-                spawnTime = 3;
+                canSpawn = false;
             }
         }
     }
