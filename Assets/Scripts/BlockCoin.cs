@@ -7,6 +7,7 @@ public class BlockCoin : MonoBehaviour
     private void Start()
     {
         ScoreManager.Instance.AddCoin();
+        FindObjectOfType<AudioManager>().Play("Coin");
 
         StartCoroutine(Animate());
     }
