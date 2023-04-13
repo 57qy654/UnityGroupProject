@@ -885,6 +885,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: PowerDown
+    clip: {fileID: 8300000, guid: ff2d5ba2494204608ade5f87a53f700e, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &953143381
 Transform:
   m_ObjectHideFlags: 0
