@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public bool canSpawn = true; // tells spawner if enemy can spawn
     public float spawnTime; // how long enemies spawn for
     public int enemiesPresent; // checks how many enemies are in
-    //public bool permission;
+    public bool permission;
     public float spawnRadius = 10f;
     //bool isInvoking = true;
 
@@ -37,20 +37,21 @@ public class Spawner : MonoBehaviour
             return;
         float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
 
-        if (distanceToPlayer <= spawnRadius && )
+        if (distanceToPlayer <= spawnRadius)
         {
             if (permission == true)
             {
                 
-                Invoke("SpawnEnemy", 0.5f);
-                permission = false;
-                isInvoking = true;
-                distanceToPlayer = 64;
+
 
                 if (canSpawn)
                 {
                     spawnTime -= Time.deltaTime; // acts as a count down
-                    if (spawnTime < 0)
+                    if (spawnTime > 0)
+                    {
+                        Invoke("SpawnEnemy", 5f);
+                    }
+                    else
                     {
                         canSpawn = false;
                     }
@@ -58,15 +59,7 @@ public class Spawner : MonoBehaviour
             }
             
         }
-        else
-        {
-            // Cancel the Invoke call if player is not in the spawn radius
-            if (isInvoking)
-            {
-                CancelInvoke("SpawnEnemy");
-                isInvoking = false;
-            }
-        }
+       
 
     }
 
@@ -90,5 +83,10 @@ public class Spawner : MonoBehaviour
             // makes spawner stop spawning
             spawnerFinishGameObject.SetActive(true);
         }
+    }
+
+    void MinUpdate()
+    {
+
     }
 }
