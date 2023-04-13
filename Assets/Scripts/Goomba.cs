@@ -7,6 +7,7 @@ using UnityEngine;
 public class Goomba : MonoBehaviour
 {
     public Sprite flatSprite;
+    private Spawner goombaSpawn; // create reference to spawning script
 
     // checks collision of goomba and player
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -57,5 +58,17 @@ public class Goomba : MonoBehaviour
         GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills goomba and does the death animation
         Destroy(gameObject, 3f); // destroy dead goomba after 3 seconds
 
+        goombaSpawn = FindObjectOfType<Spawner>();
+        goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
+
+        //check if spawner done
+        // without enemies present logic, the spawner would just stop when the spawn time reached 0
+        if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
+        {
+            goombaSpawn.spawnerFinish = true;
+        }
+
     }
+
+    protected  
 }
