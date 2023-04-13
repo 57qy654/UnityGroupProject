@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7239433545165027994}
   - component: {fileID: 5054527103629589221}
   - component: {fileID: 6528809218111283171}
-  - component: {fileID: 1969268339993144891}
+  - component: {fileID: 827637104963955051}
   m_Layer: 6
   m_Name: Cerberus
   m_TagString: Enemy
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6017527982875130140}
   deadSprite: {fileID: 0}
---- !u!114 &1969268339993144891
+--- !u!114 &827637104963955051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,10 +180,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2519154588636839049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4170549189d6b43b882c9fac23afde, type: 3}
+  m_Script: {fileID: 11500000, guid: 86f6cc44aca137248bdc6e6c37cf719a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flatSprite: {fileID: 21300000, guid: dceda839fbcc74441aef5f93f32bdc1a, type: 3}
   speed: 3
   hunt: 0
   huntRadius: 34
+  count: 0

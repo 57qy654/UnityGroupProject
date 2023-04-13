@@ -6,7 +6,7 @@ public class EntityMovement : MonoBehaviour
 {
     public float speed = 1f; // variable for speed
     public Vector2 direction = Vector2.left;    // variable for direction
-    // public float gravity = -9.81f; allows you to customize the gravity per entity, useful for adding in the cheat menu or something
+    //public float gravity = -9.81f; allows you to customize the gravity per entity, useful for adding in the cheat menu or something
 
     private new Rigidbody2D rigidbody; // provides reference for rigid body in unity
     private Vector2 velocity; // variable for velocity

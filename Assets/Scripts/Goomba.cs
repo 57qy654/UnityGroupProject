@@ -9,7 +9,7 @@ public class Goomba : MonoBehaviour
     public Sprite flatSprite;
 
     // checks collision of goomba and player
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
         {
