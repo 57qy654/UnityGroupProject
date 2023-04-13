@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] spawnPoints; // store points where enemys spawn
     public GameObject[] enemies; // store all enemys 
+    private GameObject player1;
     public bool spawnerFinish;
     public GameObject spawnerFinishGameObject;
     public float minTime; // The minimum time between spawns of enemys 
@@ -13,33 +14,45 @@ public class Spawner : MonoBehaviour
     public bool canSpawn; // tells spawner if enemy can spawn
     public float spawnTime; // how long enemies spawn for
     public int enemiesPresent; // checks how many enemies are in
+    public bool permission;
+    public float spawnRadius = 10f;
 
     GameObject currentPoint; // point where enemy spawns 
     int index;
 
-    private void Start()
+    void Start()
     {
-        Invoke("SpawnEnemy", 0.5f);
+        player1 = GameObject.FindGameObjectWithTag("Player"); // find player
     }
+
 
     private void Update()
     {
-        
-        if (canSpawn)
+        if (player1 == null)
+            return;
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
+        if (distanceToPlayer <= spawnRadius)
         {
-            spawnTime -= Time.deltaTime; // acts as a count down
-            if (spawnTime < 0)
+            permission = true;
+            if (canSpawn)
             {
-                canSpawn = false;
+                spawnTime -= Time.deltaTime; // acts as a count down
+                if (spawnTime < 0)
+                {
+                    canSpawn = false;
+                }
             }
         }
+
     }
 
     void SpawnEnemy()
     {
         index = Random.Range(0, spawnPoints.Length); // choose random spot in spawn points and store in index
         currentPoint = spawnPoints[index]; //set point where enemy spawn
-        float timeInBetweenSpawn = Random.Range(minTime, maxTime);
+        //float timeInBetweenSpawn = Random.Range(minTime, maxTime);
+        float timeInBetweenSpawn = minTime;
 
         if (canSpawn == true) // if can spawn, then spawn enemy
         {

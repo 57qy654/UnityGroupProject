@@ -7,7 +7,7 @@ public class GuardianOfHell : Goomba
     // reference to player position
     private GameObject player1;
     public float speed;
-    public bool hunt = false;
+    public bool go = false;
     public float huntRadius = 34f; // radius to detect player
     private Vector2 initialPosition;
     private Vector2 currentPosition;
@@ -15,6 +15,7 @@ public class GuardianOfHell : Goomba
     private Vector2 midPosition;
     private bool movingTowardsTarget = true;
     public int count = 0;
+
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -55,16 +56,31 @@ public class GuardianOfHell : Goomba
         initialPosition = new Vector2(10, 8);
         targetPosition = new Vector2(-10, 8);
         midPosition = new Vector2(0, 8);
+        EntityMovement movement = GetComponent<EntityMovement>();
+        movement.speed = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // if player isnt in sight dont hunt
         if (player1 == null)
             return;
-        StartCoroutine(EnemyPattern());
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
+        if (distanceToPlayer <= huntRadius)
+        {
+            go = true;
+        }
+        if (go == true)
+        {
+            EntityMovement movement = GetComponent<EntityMovement>();
+            movement.speed = 3f;
+            StartCoroutine(EnemyPattern());
+        }
+        
+        
+
 
     }
 
@@ -76,6 +92,8 @@ public class GuardianOfHell : Goomba
 
     private IEnumerator EnemyPattern()
     {
+        yield return new WaitForSeconds(4f);
+
         currentPosition = transform.position;
 
         if (movingTowardsTarget)
