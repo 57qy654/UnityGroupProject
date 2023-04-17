@@ -10,6 +10,8 @@ public class SideScrolling : MonoBehaviour
     // Number will be changed
     public float height = 6.5f;
     public float undergroundHeight = -9.5f;
+    public float camHeightNormal = 6.5f;
+    public float camHeightAbove = 8f;
 
     private void Awake()
     {
@@ -20,6 +22,18 @@ public class SideScrolling : MonoBehaviour
     {
         Vector3 cameraPosition = transform.position;
         cameraPosition.x = Mathf.Max(cameraPosition.x, player.position.x);
+
+        if (player.position.y >= camHeightAbove + 2f)
+        {
+            Vector3 targetPos = new Vector3(cameraPosition.x, camHeightAbove + 3f, cameraPosition.z);
+            cameraPosition = Vector3.Lerp(cameraPosition, targetPos, Time.deltaTime * 2f);
+        }
+        else if (player.position.y + 2f < camHeightAbove)
+        {
+            Vector3 targetPos = new Vector3(cameraPosition.x, camHeightNormal, cameraPosition.z);
+            cameraPosition = Vector3.Lerp(cameraPosition, targetPos, Time.deltaTime * 2f);
+        }
+
         transform.position = cameraPosition;
     }
 
