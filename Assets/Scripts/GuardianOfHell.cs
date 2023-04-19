@@ -76,12 +76,12 @@ public class GuardianOfHell : Goomba
         {
             if (isMovingLeft) // used so that Moveleft doesnt get called more than once so that it doesnt jitter when changing directions
             {
-                StartCoroutine(enemyPattern()); // start enemy pattern method
+                //StartCoroutine(enemyPattern()); // start enemy pattern method
 
             }
             if (isMovingLeft != true && hunt == true)
             {
-                Hunt(); //when done with enemy pattern attack player
+                //Hunt(); //when done with enemy pattern attack player
             }
 
         }
@@ -92,6 +92,7 @@ public class GuardianOfHell : Goomba
         player1 = newPlayer;
     }
 
+    
     public IEnumerator enemyPattern()
     {
         GameObject theBoss = GameObject.Find("Cerberus"); // create reference to game object of the boss
@@ -110,7 +111,9 @@ public class GuardianOfHell : Goomba
         bossMovement.direction = Vector2.left; // switches directions to move left
         hunt = true;    // activate hunt
     }
+    
 
+    
     private void Hunt()
     {
         Vector2 direction = player2.position - transform.position;  // finding the direction to which the boss moves towards the player
@@ -121,7 +124,7 @@ public class GuardianOfHell : Goomba
         // moving the boss towards the player in the X and Y directions since its a flying type enemy
         transform.position += new Vector3(direction.x, direction.y, 0f) * speed * Time.deltaTime;
     }
-
+    
 }
 
 

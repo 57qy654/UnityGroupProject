@@ -7,7 +7,7 @@ public class KingOfSwamp : Koopa
     //public Sprite shellSprite;
     //public float shellSpeed = 15;
 
-    private float delayTime = 1.5f;
+    private float delayTime = 2.0f;
     private float delayTime2 = 2.0f;
     //private bool shelled; // inficate if koopa is in shell or not
     //private bool shellPushed; // indicate if koopa shell is moving or not

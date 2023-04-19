@@ -867,6 +867,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cerberus
       objectReference: {fileID: 0}
+    - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6048822061274830910, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_RootOrder
       value: 4

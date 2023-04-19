@@ -16,8 +16,19 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; }
     public int coins { get; private set; }
     
+    /*
+    private void Update()
+    {
+        // creates an array of game objects that find all objects with tag "Boss" in the scene and puts in array
+        GameObject[] bossSearcher = GameObject.FindGameObjectsWithTag("Boss");
 
-
+        // if there are no more bosses left in the scene, load the next level
+        if (bossSearcher.Length == 0)
+        {
+            NextLevel();
+        }
+    }
+    */
 
     private void Awake()
     {
