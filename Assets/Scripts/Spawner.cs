@@ -11,64 +11,27 @@ public class Spawner : MonoBehaviour
     public GameObject spawnerFinishGameObject;
     public float minTime; // The minimum time between spawns of enemys 
     public float maxTime; // The maximum time between spawns of enemys, choose how frequently enemies spawn
-    public bool canSpawn = true; // tells spawner if enemy can spawn
+    public bool canSpawn; // tells spawner if enemy can spawn
     public float spawnTime; // how long enemies spawn for
     public int enemiesPresent; // checks how many enemies are in
-    public bool permission;
-    public float spawnRadius = 10f;
-    //bool isInvoking = true;
-
-
     GameObject currentPoint; // point where enemy spawns 
     int index;
 
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
-        permission = true;
 
 
     }
 
 
-    private void Update()
-    {
-        if (player1 == null)
-            return;
-        float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
-
-        if (distanceToPlayer <= spawnRadius)
-        {
-            if (permission == true)
-            {
-                
-
-
-                if (canSpawn)
-                {
-                    spawnTime -= Time.deltaTime; // acts as a count down
-                    if (spawnTime > 0)
-                    {
-                        Invoke("SpawnEnemy", 5f);
-                    }
-                    else
-                    {
-                        canSpawn = false;
-                    }
-                }
-            }
-            
-        }
-       
-
-    }
 
     void SpawnEnemy()
     {
         index = Random.Range(0, spawnPoints.Length); // choose random spot in spawn points and store in index
         currentPoint = spawnPoints[index]; //set point where enemy spawn
-        //float timeInBetweenSpawn = Random.Range(minTime, maxTime);
-        float timeInBetweenSpawn = minTime;
+        float timeInBetweenSpawn = Random.Range(minTime, maxTime);
+
 
         if (canSpawn == true) // if can spawn, then spawn enemy
         {
@@ -83,10 +46,5 @@ public class Spawner : MonoBehaviour
             // makes spawner stop spawning
             spawnerFinishGameObject.SetActive(true);
         }
-    }
-
-    void MinUpdate()
-    {
-
     }
 }
