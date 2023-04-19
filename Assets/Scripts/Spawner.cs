@@ -17,16 +17,7 @@ public class Spawner : MonoBehaviour
     GameObject currentPoint; // point where enemy spawns 
     int index;
 
-    void Start()
-    {
-        player1 = GameObject.FindGameObjectWithTag("Player"); // find player
-
-
-    }
-
-
-
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         index = Random.Range(0, spawnPoints.Length); // choose random spot in spawn points and store in index
         currentPoint = spawnPoints[index]; //set point where enemy spawn
@@ -39,12 +30,20 @@ public class Spawner : MonoBehaviour
             enemiesPresent++;
         }
 
-        Invoke("SpawnEnemy", timeInBetweenSpawn);
+        Invoke("SpawnEnemy", timeInBetweenSpawn); // spawns enemys for the random time
+        Invoke("Stop", 8f); // stops enemys from spawning after 8 seconds
         if (spawnerFinish == true)
         {
             // done spawning
             // makes spawner stop spawning
             spawnerFinishGameObject.SetActive(true);
         }
+        
+    }
+
+    // method that stops enemys from spawning
+    public void Stop()
+    {
+        CancelInvoke("SpawnEnemy"); // stops the Spawn enemy
     }
 }

@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class GuardianOfHell : Goomba
 {
-    // reference to player position
-    private GameObject player1;
-    public float speed;
-    public bool go = false;
-    public float huntRadius = 34f; // radius to detect player
-    private Vector2 initialPosition;
-    private Vector2 currentPosition;
-    private Vector2 targetPosition;
-    private Vector2 midPosition;
+    
+    private GameObject player1;  // reference to player game object
+    public Transform player2; // a reference to the players transform, drag mario into slot in the editor
+    public float speed; // referene to speed
+    public bool go = false; // variable that determines if boss moves or not
+    public float huntRadius = 28f; // radius to detect player
+    private Vector2 initialPosition;   // variable for start position
+    private Vector2 currentPosition;    // variable for position of enemy
+    private Vector2 markPosition;   // variable for position want to move to
     private bool movingTowardsTarget = true;
-    public int count = 0;
-
+    public int count = 0;   // variable that determines boss healthbar
+    private bool isMovingLeft = true;
+    private bool hunt;  // variable for attack
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -53,13 +54,12 @@ public class GuardianOfHell : Goomba
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
         Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
-        initialPosition = new Vector2(10, 8);
-        targetPosition = new Vector2(-10, 8);
-        midPosition = new Vector2(0, 8);
-        EntityMovement movement = GetComponent<EntityMovement>();
-        movement.speed = 0f;
+        initialPosition = new Vector2(10, 8); // initialize start position
+        markPosition = new Vector2(-10, 8);   // initialize target position
+        hunt = false; // set attack to be false
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -70,60 +70,21 @@ public class GuardianOfHell : Goomba
         float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
         if (distanceToPlayer <= huntRadius)
         {
-            go = true;
+            go = true;  // if within radius boss is allowed to move
         }
         if (go == true)
         {
-            EntityMovement movement = GetComponent<EntityMovement>();
-            movement.speed = 3f;
-            StartCoroutine(EnemyPattern());
-        }
-
-
-
-
-    }
-
-    private IEnumerator StopUsing()
-    {
-        yield return new WaitForSeconds(1f);
-
-    }
-
-    private IEnumerator EnemyPattern()
-    {
-        yield return new WaitForSeconds(4f);
-
-        currentPosition = transform.position;
-
-        if (movingTowardsTarget)
-        {
-            // Move towards the target position
-
-            transform.position = Vector2.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
-
-            // Check if cerberus has reached the target position
-            if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
+            if (isMovingLeft) // used so that Moveleft doesnt get called more than once so that it doesnt jitter when changing directions
             {
-                // Set cerberus direction to move back to the initial position
-                movingTowardsTarget = false;
-            }
-        }
-        else
-        {
-            // Move towards the initial position
-            transform.position = Vector2.MoveTowards(currentPosition, initialPosition, speed * Time.deltaTime);
-
-            // Check if cerberus has reached the initial position
-            if (Vector2.Distance(transform.position, initialPosition) < 0.1f)
-            {
-                // Set the cerberus direction to move towards the target position
-                movingTowardsTarget = true;
+                StartCoroutine(enemyPattern()); // start enemy pattern method
 
             }
+            if (isMovingLeft != true && hunt == true)
+            {
+                Hunt(); //when done with enemy pattern attack player
+            }
+
         }
-        yield return new WaitForSeconds(5f);
-        transform.position = Vector2.MoveTowards(currentPosition, player1.transform.position, speed * Time.deltaTime);
     }
 
     public void FindPlayer(GameObject newPlayer)
@@ -131,5 +92,36 @@ public class GuardianOfHell : Goomba
         player1 = newPlayer;
     }
 
+    public IEnumerator enemyPattern()
+    {
+        GameObject theBoss = GameObject.Find("Cerberus"); // create reference to game object of the boss
+        float distanceBetweenStartAndFlip = initialPosition.x - markPosition.x; // the distance between the 2 points
+        EntityMovement bossMovement = theBoss.GetComponent<EntityMovement>(); // reference to entitymovement script of boss object
+
+        // Calculate the time it takes to reach the point where it will turn right
+        float timeTillFlip = (distanceBetweenStartAndFlip / speed);
+
+        // the boss should be placed 2 spaces to the left of where the initial position is in order to stop jitter
+        yield return new WaitForSeconds(timeTillFlip);
+        isMovingLeft = false;   
+        bossMovement.direction = Vector2.right; // switches directions to move right
+
+        yield return new WaitForSeconds(timeTillFlip);
+        bossMovement.direction = Vector2.left; // switches directions to move left
+        hunt = true;    // activate hunt
+    }
+
+    private void Hunt()
+    {
+        Vector2 direction = player2.position - transform.position;  // finding the direction to which the boss moves towards the player
+
+        // makes it so that the object moving towards the player is at a constant speed, regardless of the distance between the boss & player.
+        direction.Normalize();
+
+        // moving the boss towards the player in the X and Y directions since its a flying type enemy
+        transform.position += new Vector3(direction.x, direction.y, 0f) * speed * Time.deltaTime;
+    }
 
 }
+
+

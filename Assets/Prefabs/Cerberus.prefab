@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c0a834f8ed38d49b8a63230e296e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   direction: {x: -1, y: 0}
 --- !u!114 &6528809218111283171
 MonoBehaviour:
@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flatSprite: {fileID: 21300000, guid: dceda839fbcc74441aef5f93f32bdc1a, type: 3}
+  player2: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
   speed: 3
-  hunt: 0
-  huntRadius: 34
+  go: 0
+  huntRadius: 28
   count: 0
