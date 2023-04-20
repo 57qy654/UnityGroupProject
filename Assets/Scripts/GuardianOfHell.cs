@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GuardianOfHell : Goomba
 {
-    
+    private GameManager gameManager;  // add a reference to the game manager
+
     private GameObject player1;  // reference to player game object
     public Transform player2; // a reference to the players transform, drag mario into slot in the editor
     public float speed; // referene to speed
@@ -18,6 +19,19 @@ public class GuardianOfHell : Goomba
     private bool isMovingLeft = true;
     private bool hunt;  // variable for attack
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        player1 = GameObject.FindGameObjectWithTag("Player"); // find player
+        Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
+        initialPosition = new Vector2(10, 8); // initialize start position
+        markPosition = new Vector2(-10, 8);   // initialize target position
+        hunt = false; // set attack to be false
+
+        // get the reference to game manager script to have it change levels when boss dies.
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  
+    }
+
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
@@ -30,6 +44,7 @@ public class GuardianOfHell : Goomba
                 if (count == 3)
                 {
                     Hit();
+                    gameManager.NextLevel();
                 }
             }
             else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
@@ -49,17 +64,7 @@ public class GuardianOfHell : Goomba
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player1 = GameObject.FindGameObjectWithTag("Player"); // find player
-        Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
-        initialPosition = new Vector2(10, 8); // initialize start position
-        markPosition = new Vector2(-10, 8);   // initialize target position
-        hunt = false; // set attack to be false
-    }
 
-    
     // Update is called once per frame
     void Update()
     {
