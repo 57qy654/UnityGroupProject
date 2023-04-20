@@ -26,6 +26,7 @@ public class Spawner : MonoBehaviour
 
         if (canSpawn == true) // if can spawn, then spawn enemy
         {
+            // Set the Z position of the spawned enemy to the same as the camera
             Instantiate(enemies[Random.Range(0, enemies.Length)], currentPoint.transform.position, Quaternion.identity);
             enemiesPresent++;
         }

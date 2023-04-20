@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; }
     public int coins { get; private set; }
     
-    /*
+    
     private void Update()
     {
         // creates an array of game objects that find all objects with tag "Boss" in the scene and puts in array
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             NextLevel();
         }
     }
-    */
+    
 
     private void Awake()
     {
@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+
         LoadLevel(world, stage + 1);
     }
 
