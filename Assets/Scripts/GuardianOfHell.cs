@@ -23,13 +23,19 @@ public class GuardianOfHell : Goomba
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
-        Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
-        initialPosition = new Vector2(10, 8); // initialize start position
-        markPosition = new Vector2(-10, 8);   // initialize target position
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
+        initialPosition = transform.position;   // initialize start position
+        markPosition = new Vector2(transform.position.x - 20, transform.position.y);
         hunt = false; // set attack to be false
 
         // get the reference to game manager script to have it change levels when boss dies.
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();  
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+
+
+        //Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
+        //initialPosition = new Vector2(10, 8); // initialize start position
+        //markPosition = new Vector2(-10, 8);   // initialize target position
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
@@ -82,12 +88,12 @@ public class GuardianOfHell : Goomba
         {
             if (isMovingLeft) // used so that Moveleft doesnt get called more than once so that it doesnt jitter when changing directions
             {
-                //StartCoroutine(enemyPattern()); // start enemy pattern method
+                StartCoroutine(enemyPattern()); // start enemy pattern method
 
             }
             if (isMovingLeft != true && hunt == true)
             {
-                //Hunt(); //when done with enemy pattern attack player
+                Hunt(); //when done with enemy pattern attack player
             }
 
         }
