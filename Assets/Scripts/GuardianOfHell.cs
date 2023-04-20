@@ -54,6 +54,7 @@ public class GuardianOfHell : Goomba
                 {
                     Flatten();
                     FindObjectOfType<AudioManager>().Play("Stomp");
+                    gameManager.NextLevel();
                 }
             }
             else
