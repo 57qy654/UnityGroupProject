@@ -1149,6 +1149,11 @@ MonoBehaviour:
   velocity: {x: 10, y: -10}
   offset: {x: 1, y: 0.1}
   cooldown: 1
+--- !u!4 &212386419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
+  m_PrefabInstance: {fileID: 212386410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &225269019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3119,6 +3124,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 827637104963955051, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 212386419}
     - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_Name
       value: Cerberus
@@ -6594,6 +6603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 5987206807527370899, guid: e19231b2aae07e74197bc91e92401d9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5987206807527370901, guid: e19231b2aae07e74197bc91e92401d9a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8450,7 +8463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058351442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.68, y: 6.598571, z: -10}
+  m_LocalPosition: {x: 2.66, y: 6.598571, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
