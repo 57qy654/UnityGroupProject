@@ -13,7 +13,7 @@ public class KingOfSwamp : Koopa
     //private bool shelled; // inficate if koopa is in shell or not
     //private bool shellPushed; // indicate if koopa shell is moving or not
     private EntityMovement visible;
-    public FallingBlock fall;
+    //public FallingBlock fall;
 
 
 
@@ -26,9 +26,9 @@ public class KingOfSwamp : Koopa
 
             if (player.starpower) // checks if the player is in starpower, if so, hits koopa
             {
-                FallingBlock fall = GetComponent<FallingBlock>();
                 Hit();
-                StartCoroutine(fall.Tumble());
+                FallingBlock fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
+                StartCoroutine(fallingBlock.Tumble());
             }
             else
             {
