@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582113571970750861}
   - component: {fileID: 7354083545847200453}
+  - component: {fileID: -1628628741227689481}
   m_Layer: 0
   m_Name: LevelBarrier
   m_TagString: Untagged
@@ -58,3 +59,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1628628741227689481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168293459931205721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ce2b53ebbb34a459da20f3a9af1e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
