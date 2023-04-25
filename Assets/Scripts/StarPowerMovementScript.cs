@@ -88,7 +88,7 @@ public class StarPowerMovementScript : MonoBehaviour
             }
         }
 
-        Debug.Log("Velocity: " + velocity);
+        //Debug.Log("Velocity: " + velocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
