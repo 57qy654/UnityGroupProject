@@ -6,11 +6,13 @@ public class KingOfSwamp : Koopa
 {
     //public Sprite shellSprite;
     //public float shellSpeed = 15;
-
-    private float delayTime = 2.0f;
-    private float delayTime2 = 2.0f;
+    private bool startPattern = true;
+    private bool nextStage = false;
+    private float delayTime = 1.9f;
+    private float delayTime2 = 2.1f;
     //private bool shelled; // inficate if koopa is in shell or not
     //private bool shellPushed; // indicate if koopa shell is moving or not
+    public EntityMovement visible;
 
 
 
@@ -44,6 +46,7 @@ public class KingOfSwamp : Koopa
         FindObjectOfType<AudioManager>().Play("StompKoopa");
         EntityMovement movement = GetComponent<EntityMovement>();
         movement.speed = shellSpeed;
+        nextStage = true;
     }
 
     private IEnumerator Sneaky(float delayTime2)
@@ -57,12 +60,24 @@ public class KingOfSwamp : Koopa
 
 
 
+    void FixedUpdate()
+    {
+        if (visible.enabled == true && startPattern == true)
+        {
+            StartCoroutine(EnterShellAfterDelay(delayTime));
+            startPattern = false;
+            nextStage = true;
+            if (nextStage == true)
+            {
+                StartCoroutine(Sneaky(delayTime2));
+            }
+        }
 
-    //EntityMovement movement = GetComponent<EntityMovement>();
+    }
+
     void Start()
     {
-        StartCoroutine(EnterShellAfterDelay(delayTime));
-        StartCoroutine(Sneaky(delayTime2));
+        visible = GetComponent<EntityMovement>();
     }
 
 }

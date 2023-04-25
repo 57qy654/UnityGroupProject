@@ -55,6 +55,11 @@ public class EntityMovement : MonoBehaviour
         {
             direction = -direction;
             FindObjectOfType<AudioManager>().Play("ShellRicochet");
+
+            // Flip the sprite horizontally
+            Vector2 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
         }
 
         if (rigidbody.Raycast(Vector2.down))
