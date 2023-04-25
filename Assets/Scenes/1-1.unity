@@ -3537,106 +3537,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 866036194764081928, guid: cebb68a73adb34740bc634f98a85d1a4, type: 3}
   m_PrefabInstance: {fileID: 710672567}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &711124829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 711124831}
-  - component: {fileID: 711124830}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &711124830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711124829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58b5f2f890ba4889b1f8cab698788e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: 1Up
-    clip: {fileID: 8300000, guid: 1e10a6c4b57cb441eb4dfff36581bce7, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: MagicMushroom
-    clip: {fileID: 8300000, guid: 4c45be5f589a54b8f9d32974a7e55265, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: BigJump
-    clip: {fileID: 8300000, guid: 80dd5e44ee2f041ab83b8fc6c59b1c70, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: SmallJump
-    clip: {fileID: 8300000, guid: 2fa1e436f0d724cc192ed1454191ec76, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Stomp
-    clip: {fileID: 8300000, guid: 32e5e0c9114bc43bd9e806e53daf5315, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Woo
-    clip: {fileID: 8300000, guid: 49ef7b9a481bb43ed885f81c314c4f5b, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Starpower
-    clip: {fileID: 8300000, guid: 438e8a1be1271453d89b2330891d0339, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: BlockHit
-    clip: {fileID: 8300000, guid: 2ea2564b9362a46a18b07afea7e17b20, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: StompKoopa
-    clip: {fileID: 8300000, guid: c53f760a5742349aa9f0572d930aa262, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: ShellRicochet
-    clip: {fileID: 8300000, guid: 58baaf801de6f48608bdd3238fbac124, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: MarioDies
-    clip: {fileID: 8300000, guid: b0fa18add732f4251837b32853004fc9, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
---- !u!4 &711124831
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711124829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.569081, y: 8.442553, z: -10.307418}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &719236743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10696,3 +10596,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318b5bae60cc0b34797b12bb862e4baa, type: 3}
+--- !u!1001 &1738648640628426936
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1738648641307946645, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.569081
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.442553
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.307418
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946647, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
