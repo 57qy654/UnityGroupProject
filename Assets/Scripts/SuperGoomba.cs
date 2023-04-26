@@ -18,11 +18,17 @@ public class SuperGoomba : MonoBehaviour
 
             if (collision.transform.DotTest(transform, Vector2.down) && player.starpower) // checks if the player is in starpower, if so, hits goomba
             {
+
+                FindObjectOfType<AudioManager>().Play("stomp");
                 Flatten();
+
             }
             else if (collision.transform.DotTest(transform, Vector2.down) && player.big) // checks if player is big and lands on goomba head
             {
+
+                FindObjectOfType<AudioManager>().Play("stomp");
                 Flatten();
+
             }
             else
             {

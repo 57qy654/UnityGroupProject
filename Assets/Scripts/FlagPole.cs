@@ -18,6 +18,8 @@ public class FlagPole : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            audioManager.Play("LevelComplete");
             StartCoroutine(MoveTo(flag, poleBottom.position));
             StartCoroutine(LevelCompleteSequence(other.transform));
         }
@@ -35,7 +37,7 @@ public class FlagPole : MonoBehaviour
 
         // Once Mario has reached to the game castle he disappears 
         player.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         GameManager.Instance.LoadLevel(nextWorld, nextStage);
     }
@@ -51,4 +53,5 @@ public class FlagPole : MonoBehaviour
         subject.position = destination;
 
     }
+
 }

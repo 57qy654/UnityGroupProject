@@ -64,17 +64,6 @@ public class Goomba : MonoBehaviour
                 goombaSpawn.spawnerFinish = true;
             }
         }
-        //goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
-        //FindObjectOfType<AudioManager>().Play("stomp");
-
-        //check if spawner done
-        // without enemies present logic, the spawner would just stop when the spawn time reached 0
-        /*
-        if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
-        {
-            goombaSpawn.spawnerFinish = true;
-        }
-        */
     }
 
     protected void Hit()
@@ -84,13 +73,20 @@ public class Goomba : MonoBehaviour
         Destroy(gameObject, 3f); // destroy dead goomba after 3 seconds
 
         goombaSpawn = FindObjectOfType<Spawner>();
-        goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
 
         //check if spawner done
         // without enemies present logic, the spawner would just stop when the spawn time reached 0
-        if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
+        if (goombaSpawn != null)
         {
-            goombaSpawn.spawnerFinish = true;
+            goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
+                                          //FindObjectOfType<AudioManager>().Play("stomp");
+
+            //check if spawner done
+            // without enemies present logic, the spawner would just stop when the spawn time reached 0
+            if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
+            {
+                goombaSpawn.spawnerFinish = true;
+            }
         }
 
     }
