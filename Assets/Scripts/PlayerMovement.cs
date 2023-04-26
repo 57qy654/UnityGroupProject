@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Camera camera;
-    private Rigidbody2D rigidbody;
+    private new Camera camera;
+    private new Rigidbody2D rigidbody;
+    private new Collider2D collider;
     public Player player;
 
 
@@ -28,8 +29,25 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
         camera = Camera.main;
         player = GetComponent<Player>();
+    }
+
+    private void OnEnable()
+    {
+        rigidbody.isKinematic = false;
+        collider.enabled = true;
+        velocity = Vector2.zero;
+        jumping = false;
+    }
+
+    private void OnDisable()
+    {
+        rigidbody.isKinematic = true;
+        collider.enabled = false;
+        velocity = Vector2.zero;
+        jumping = false;
     }
 
     private void Update()
