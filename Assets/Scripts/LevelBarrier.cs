@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class LevelBarrier : MonoBehaviour
 {
+    public int nextWorld = 1;
+    public int nextStage = 1;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            audioManager.Stop("Jungle");
             other.gameObject.SetActive(false);
-            GameManager.Instance.NextLevel();
+            GameManager.Instance.LoadLevel(nextWorld, nextStage);
+            //GameManager.Instance.NextLevel();
         }
         else
         {

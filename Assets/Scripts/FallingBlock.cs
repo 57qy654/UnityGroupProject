@@ -10,6 +10,7 @@ public class FallingBlock : MonoBehaviour
     {
         Debug.Log("Tumble coroutine started.");
         AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Stop("Jungle");
         audioManager.Play("Earthquake");
         yield return new WaitForSecondsRealtime(2.0f);
         audioManager.Stop("Earthquake");
