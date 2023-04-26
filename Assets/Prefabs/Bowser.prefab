@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 9034095495160541100}
   - component: {fileID: 9047662808649122417}
-  - component: {fileID: 208227055}
   - component: {fileID: 208227056}
-  m_Layer: 0
+  - component: {fileID: 208227058}
+  - component: {fileID: 208227057}
+  - component: {fileID: 208227059}
+  m_Layer: 6
   m_Name: Bowser
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,21 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &208227055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276127937749905419}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c0a834f8ed38d49b8a63230e296e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  direction: {x: -1, y: 0}
-  gravity: -9.81
 --- !u!70 &208227056
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -110,10 +97,67 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 4276127937749905419}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3d95078fbbd77614a8faab87c9283eb1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1, y: 0}
   m_Size: {x: 2.5, y: 3.7}
   m_Direction: 0
+--- !u!50 &208227058
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276127937749905419}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 3d95078fbbd77614a8faab87c9283eb1, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &208227057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276127937749905419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f33cf6be2ffc4c5e90e5a6c0db4018e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireBall: {fileID: 1236769417446715186, guid: 139bd50e76d4c4c53b9cf2e15f1172de, type: 3}
+  fireballSpeed: 10
+  fireballDelay: 3
+  fireballOffset: -3
+  maxHealth: 3
+  player: {fileID: 0}
+  count: 0
+  BowserDead: {fileID: 21300000, guid: 97f3585c316b2480c8da970d006a8823, type: 3}
+  delayTime: 0
+--- !u!114 &208227059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276127937749905419}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2e1d0f43039408da684cf9be71e3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 0}
+  framerate: 0.25

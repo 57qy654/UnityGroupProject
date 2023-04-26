@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Bowser : MonoBehaviour
 {
+    private GameManager gameManager;
+
     private Rigidbody2D rb2d;
     // Bowser only shows up in the castle scene
     public GameObject FireBall;
@@ -20,6 +22,9 @@ public class Bowser : MonoBehaviour
     public GameObject player = GameObject.Find("Player");
     private Vector2 velocity;
     Transform playerTransform;
+    public int count = 0;
+    public Sprite BowserDead;
+    
 
 
     private int currentHealth;
@@ -86,5 +91,58 @@ public class Bowser : MonoBehaviour
         }
     }
 
-    
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
+        {
+            Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
+
+            if (player.starpower) // checks if the player is in starpower, if so, hits goomba
+            {
+                count++;
+                if (count == 3)
+                {
+                    Hit();
+                    gameManager.NextLevel();
+                }
+            }
+            else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
+            {
+                count++;
+                if (count == 3)
+                {
+                    Hit();
+                    FindObjectOfType<AudioManager>().Play("BowserHit");
+                    gameManager.NextLevel();
+                }
+            }
+            else
+            {
+                player.Hit();
+            }
+        }
+
+    }
+
+    protected void Hit()
+    {
+        FindObjectOfType<AudioManager>().Play("BowserDie");
+        GetComponent<Collider2D>().enabled = false; // disables bowser collider
+        //GetComponent<EntityMovement>().enabled = false; // disables goomba movement
+        GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
+        GetComponent<SpriteRenderer>().sprite = BowserDead; // updates sprite hit bowser
+
+        //GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
+        //GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills goomba and does the death animation
+        Destroy(gameObject, 3f); // destroy dead goomba after 3 seconds
+
+    }
+    protected void Flatten()
+    {
+        GetComponent<Collider2D>().enabled = false; // disables bowser collider
+        GetComponent<EntityMovement>().enabled = false; // disables goomba movement
+        GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
+        GetComponent<SpriteRenderer>().sprite = BowserDead; // updates sprite hit bowser
+        Destroy(gameObject, 0.5f); // bowser dies after 3 seconds
+    }
 }
