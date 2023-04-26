@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
     public int stage { get; private set; } 
     public int lives { get; private set; }
     public int coins { get; private set; }
-    public bool playMusic = false;
-
 
     private void Awake()
     {
@@ -44,14 +42,13 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60; // sets the target framerate to 60fps
+        GameObject myObject = GameObject.Find("MyObject");
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
 
-        NewGame(); // creates new game when its started
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play("FirstTheme");
-        if (world == 1 && stage == 1)
+        if (sceneName == "Menu")
         {
-            //AudioManager audioManager = FindObjectOfType<AudioManager>();
-            audioManager.Play("FirstTheme");
+            
         }
 
     }
@@ -61,8 +58,7 @@ public class GameManager : MonoBehaviour
         lives = 3;
         coins = 0;
 
-        //LoadLevel(1, 1); //creates a new game with given level and lives
-        LoadLevel(1, 1);
+        LoadLevel(1, 1); //creates a new game with given level and lives
     }
 
     public void LoadLevel(int world, int stage)
@@ -72,7 +68,6 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadScene($"{world}-{stage}"); // loads the given stage level
         //SceneManager.LoadScene(SceneManager.CurrentScene.BuildIndex); // loads the given stage level
-
     }
 
     public void NextLevel()
@@ -112,6 +107,8 @@ public class GameManager : MonoBehaviour
     {
         lives++;
     }
+
+    
 }
 
 

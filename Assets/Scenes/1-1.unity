@@ -2213,11 +2213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 179.3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.32
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2455,7 +2455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 179.6, y: 6.5, z: -6}
+  m_LocalPosition: {x: 11, y: 6.5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6188,6 +6188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42da675a0a41a38419529cbbc06ae97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desiredClip: {fileID: 8300000, guid: a1456c91790944243b4b90e0102d3345, type: 3}
 --- !u!4 &1311565004
 Transform:
   m_ObjectHideFlags: 0
@@ -7455,6 +7456,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7637745915343883123, guid: 33540326577d44e819b9286f99f0922f, type: 3}
   m_PrefabInstance: {fileID: 1540458569}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1541475140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541475142}
+  - component: {fileID: 1541475141}
+  m_Layer: 0
+  m_Name: musicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541475141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541475140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02afd4cc6dc0f4645b079008c6f9da3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredClip: {fileID: 8300000, guid: a1456c91790944243b4b90e0102d3345, type: 3}
+--- !u!4 &1541475142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541475140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 102.838104, y: 41.626915, z: -10.9192705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1546682600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10679,12 +10725,20 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: desiredClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1456c91790944243b4b90e0102d3345, type: 3}
+    - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
       propertyPath: sounds.Array.size
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
       propertyPath: sounds.Array.data[4].name
       value: stomp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: sounds.Array.data[5].name
+      value: woo mario
       objectReference: {fileID: 0}
     - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
       propertyPath: sounds.Array.data[16].clip

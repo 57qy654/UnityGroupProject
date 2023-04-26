@@ -28,10 +28,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         camera = Camera.main;
         player = GetComponent<Player>();
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("woo mario");
     }
 
     private void OnEnable()

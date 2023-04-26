@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;
+    //private AudioSource audioSource;
+    public AudioClip desiredClip;
 
     public static AudioManager instance;
 
@@ -27,9 +29,9 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+            //s.source.loop = s.loop; // set the loop property of the AudioSource
         }
 
     }
@@ -55,6 +57,24 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Stop();
+    }
+
+    private void Start()
+    {
+        // Get all the AudioSources on the current GameObject
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        // Loop through all the AudioSources
+        foreach (AudioSource audioSource in audioSources)
+        {
+            // Check if the current AudioSource's clip is the desired clip
+            if (audioSource.clip == desiredClip)
+            {
+                // Set the loop property to true
+                audioSource.loop = true;
+                break; // Exit the loop, since we found the desired AudioSource
+            }
+        }
     }
 
 
