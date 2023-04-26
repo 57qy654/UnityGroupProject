@@ -19,6 +19,7 @@ public class FlagPole : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager audioManager = FindObjectOfType<AudioManager>();
+            audioManager.Stop("FirstTheme");
             audioManager.Play("LevelComplete");
             StartCoroutine(MoveTo(flag, poleBottom.position));
             StartCoroutine(LevelCompleteSequence(other.transform));
