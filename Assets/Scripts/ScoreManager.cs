@@ -5,8 +5,11 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
+    private GameManager gameManager;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI lifeText;
     public static ScoreManager Instance { get; private set; }
+    int lives = GameManager.Instance.lives;
 
     int score = 0;
     public int coins { get; private set; }
@@ -19,7 +22,9 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         scoreText.text = score.ToString() + " COINS";
+        lifeText.text = lives.ToString() + " LIVES";
     }
 
     public void AddCoin()
@@ -29,3 +34,4 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString() + " COINS";
     }
 }
+
