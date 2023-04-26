@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
         collider = GetComponent<Collider2D>();
         camera = Camera.main;
         player = GetComponent<Player>();
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
-        audioManager.Play("woo mario");
+        //AudioManager audioManager = FindObjectOfType<AudioManager>();
+        //audioManager.Play("woo mario");
     }
 
     private void OnEnable()

@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public int stage { get; private set; } 
     public int lives { get; private set; }
     public int coins { get; private set; }
-    private bool startPlaying = true;
+    //private bool startPlaying = true;
 
     private void Awake()
     {
@@ -109,16 +109,7 @@ public class GameManager : MonoBehaviour
         lives++;
     }
 
-    void Update()
-    {
-        if (this.world == 1 && this.stage == 1 && startPlaying == true)
-        {
-            AudioManager audioManager = FindObjectOfType<AudioManager>();
-            audioManager.Play("FirstTheme");
-            startPlaying = false;
-        }
-        
-    }
+    
 
     
 }
