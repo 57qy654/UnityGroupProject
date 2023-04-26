@@ -26,11 +26,13 @@ public class KingOfSwamp : Koopa
 
             if (player.starpower) // checks if the player is in starpower, if so, hits koopa
             {
-                Hit();         
-                FindObjectOfType<AudioManager>().Play("Earthquake");
-                Debug.Log("AudioManager object active: " + FindObjectOfType<AudioManager>().gameObject.activeSelf);
+                Hit();
+                PlayerMovement mario = GameObject.Find("Mario").GetComponent<PlayerMovement>();
+                mario.velocity = Vector2.zero;
+                mario.moveSpeed = 0f;
                 FallingBlock fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
                 StartCoroutine(fallingBlock.Tumble());
+
             }
             else
             {
@@ -38,7 +40,6 @@ public class KingOfSwamp : Koopa
             }
         }
     }
-
 
     private IEnumerator EnterShellAfterDelay(float delayTime)
     {
@@ -83,6 +84,7 @@ public class KingOfSwamp : Koopa
     void Start()
     {
         visible = GetComponent<EntityMovement>();
+        //fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
     }
 
 }

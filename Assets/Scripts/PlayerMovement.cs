@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Camera camera;
-    private  Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody;
     public Player player;
 
 
 
-    private Vector2 velocity;
+    public Vector2 velocity;
     private float inputAxis;
 
     public float moveSpeed = 8f;
