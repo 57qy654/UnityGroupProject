@@ -78,6 +78,7 @@ public class Bowser : MonoBehaviour
         {
             Vector3 spawnPosition = transform.position + new Vector3(0, fireballOffset, 0);
             GameObject fireballClone = Instantiate(FireBall, spawnPosition, transform.rotation);
+            FindObjectOfType<AudioManager>().Play("FireBall");
             Rigidbody2D rb = fireballClone.GetComponent<Rigidbody2D>();
             rb.velocity = (playerTransform.position - transform.position).normalized * fireballSpeed;
             lastFireballTimes = Time.time;

@@ -69,8 +69,14 @@ public class FireBall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        Player player = col.gameObject.GetComponent<Player>();
         rigidbody.velocity = new Vector2(velocity.x, -velocity.y);
         //FindObjectOfType<AudioManager>().Play("IceHit");
+
+        if(col.collider.tag == "Player" && !player.starpower)
+        {
+            player.Hit();
+        }
 
         // checks if iceball collides with an enemy and kills it if it does
         if (col.collider.tag == "Enemy")
