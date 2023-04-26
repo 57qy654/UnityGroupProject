@@ -22,8 +22,8 @@ public class Goomba : MonoBehaviour
             }
             else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
             {
+                FindObjectOfType<AudioManager>().Play("stomp");
                 Flatten();
-                FindObjectOfType<AudioManager>().Play("Stomp");
             }
             else
             {
@@ -52,14 +52,29 @@ public class Goomba : MonoBehaviour
         Destroy(gameObject, 0.5f); // destroys goomba after half a second, so you are able to see flat goomba
         
         goombaSpawn = FindObjectOfType<Spawner>();
-        goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
+        if (goombaSpawn != null)
+        {
+            goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
+                                          //FindObjectOfType<AudioManager>().Play("stomp");
+
+            //check if spawner done
+            // without enemies present logic, the spawner would just stop when the spawn time reached 0
+            if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
+            {
+                goombaSpawn.spawnerFinish = true;
+            }
+        }
+        //goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
+        //FindObjectOfType<AudioManager>().Play("stomp");
 
         //check if spawner done
         // without enemies present logic, the spawner would just stop when the spawn time reached 0
+        /*
         if (goombaSpawn.spawnTime <= 0 && goombaSpawn.enemiesPresent <= 0)
         {
             goombaSpawn.spawnerFinish = true;
         }
+        */
     }
 
     protected void Hit()

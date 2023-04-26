@@ -26,7 +26,9 @@ public class KingOfSwamp : Koopa
 
             if (player.starpower) // checks if the player is in starpower, if so, hits koopa
             {
-                Hit();
+                Hit();         
+                FindObjectOfType<AudioManager>().Play("Earthquake");
+                Debug.Log("AudioManager object active: " + FindObjectOfType<AudioManager>().gameObject.activeSelf);
                 FallingBlock fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
                 StartCoroutine(fallingBlock.Tumble());
             }
