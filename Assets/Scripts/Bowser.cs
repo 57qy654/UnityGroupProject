@@ -19,7 +19,7 @@ public class Bowser : MonoBehaviour
     // You can change the max health if needed 
     public int maxHealth = 3;
     // new transform object to get the player's coordinates
-    public GameObject player = GameObject.Find("Player");
+    //public GameObject player = GameObject.Find("Player");
     private Vector2 velocity;
     Transform playerTransform;
     public int count = 0;
@@ -40,6 +40,9 @@ public class Bowser : MonoBehaviour
         playerTransform = player.GetComponent<Transform>();
         float bowserX = transform.position.x;
         float bowserY = transform.position.y;
+
+        // reference to gameManager
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
     }
 

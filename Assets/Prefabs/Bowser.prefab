@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 208227058}
   - component: {fileID: 208227057}
   - component: {fileID: 208227059}
+  - component: {fileID: 8731901636224457355}
   m_Layer: 6
   m_Name: Bowser
   m_TagString: Boss
@@ -142,7 +143,6 @@ MonoBehaviour:
   fireballDelay: 3
   fireballOffset: -3
   maxHealth: 3
-  player: {fileID: 0}
   count: 0
   BowserDead: {fileID: 21300000, guid: 97f3585c316b2480c8da970d006a8823, type: 3}
   delayTime: 0
@@ -161,3 +161,17 @@ MonoBehaviour:
   sprites:
   - {fileID: 0}
   framerate: 0.25
+--- !u!114 &8731901636224457355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276127937749905419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd9327628b68354ab8bbb15a6efef0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 9047662808649122417}
+  deadSprite: {fileID: 0}
