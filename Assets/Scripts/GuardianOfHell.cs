@@ -18,7 +18,11 @@ public class GuardianOfHell : Goomba
     private bool isMovingLeft = true;
     private bool hunt;  // variable for attack
 
+    private ShootSomething shootSomething; // reference to script that makes boss shoot fireballs
+
     // Start is called before the first frame update
+
+    
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
@@ -30,7 +34,10 @@ public class GuardianOfHell : Goomba
         // get the reference to game manager script to have it change levels when boss dies.
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
+        shootSomething = GetComponent<ShootSomething>();
+        shootSomething.CanShoot = true;
 
+        //BossShoot();
 
         //Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
         //initialPosition = new Vector2(10, 8); // initialize start position
@@ -71,13 +78,24 @@ public class GuardianOfHell : Goomba
     }
 
 
+
+    public void BossShoot()
+    {
+        if (go == true)
+        {
+            shootSomething.Fire();
+        }
+        //shootSomething.Fire();
+    }
     // Update is called once per frame
     void Update()
     {
+
         // if player isnt in sight dont hunt
         if (player1 == null)
             return;
 
+        BossShoot();
         float distanceToPlayer = Vector2.Distance(transform.position, player1.transform.position);
         if (distanceToPlayer <= huntRadius)
         {
@@ -88,10 +106,13 @@ public class GuardianOfHell : Goomba
             if (isMovingLeft) // used so that Moveleft doesnt get called more than once so that it doesnt jitter when changing directions
             {
                 StartCoroutine(enemyPattern()); // start enemy pattern method
+                //BossShoot();
+                
 
             }
             if (isMovingLeft != true && hunt == true)
             {
+                go = false;
                 Hunt(); //when done with enemy pattern attack player
             }
 
@@ -109,6 +130,9 @@ public class GuardianOfHell : Goomba
         GameObject theBoss = GameObject.Find("Cerberus"); // create reference to game object of the boss
         float distanceBetweenStartAndFlip = initialPosition.x - markPosition.x; // the distance between the 2 points
         EntityMovement bossMovement = theBoss.GetComponent<EntityMovement>(); // reference to entitymovement script of boss object
+        //ShootSomething bossAttack = theBoss.GetComponent<ShootSomething>();
+
+        
 
         // Calculate the time it takes to reach the point where it will turn right
         float timeTillFlip = (distanceBetweenStartAndFlip / speed);
@@ -135,6 +159,8 @@ public class GuardianOfHell : Goomba
         // moving the boss towards the player in the X and Y directions since its a flying type enemy
         transform.position += new Vector3(direction.x, direction.y, 0f) * speed * Time.deltaTime;
     }
+
+    
     
 }
 

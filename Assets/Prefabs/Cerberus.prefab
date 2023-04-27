@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5054527103629589221}
   - component: {fileID: 6528809218111283171}
   - component: {fileID: 827637104963955051}
+  - component: {fileID: 5265157892682288936}
   m_Layer: 6
   m_Name: Cerberus
   m_TagString: Enemy
@@ -190,3 +191,19 @@ MonoBehaviour:
   go: 0
   huntRadius: 28
   count: 0
+--- !u!114 &5265157892682288936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519154588636839049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df78c1d6847cf448793cb9c1b4f05909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4025546883808847705, guid: 7d4e554415997114f8863412228f6af4, type: 3}
+  velocity: {x: 0, y: -5}
+  offset: {x: 1, y: 0.1}
+  cooldown: 2
