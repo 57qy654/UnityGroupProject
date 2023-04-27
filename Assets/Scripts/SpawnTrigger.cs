@@ -11,9 +11,10 @@ public class SpawnTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
+            
+          
             Spawner spawnerReference = GameObject.Find("Spawning").GetComponent<Spawner>(); //create reference to spawning object and spawn script
-
+            
             spawnerReference.SpawnEnemy(); // call the spawn method that spawns enemys
 
             

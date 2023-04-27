@@ -14,7 +14,6 @@ public class GuardianOfHell : Goomba
     private Vector2 initialPosition;   // variable for start position
     private Vector2 currentPosition;    // variable for position of enemy
     private Vector2 markPosition;   // variable for position want to move to
-    private bool movingTowardsTarget = true;
     public int count = 0;   // variable that determines boss healthbar
     private bool isMovingLeft = true;
     private bool hunt;  // variable for attack

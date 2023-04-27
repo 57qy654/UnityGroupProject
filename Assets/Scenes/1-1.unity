@@ -10450,6 +10450,10 @@ PrefabInstance:
       value: woo mario
       objectReference: {fileID: 0}
     - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
+      propertyPath: sounds.Array.data[12].name
+      value: Mario Waa 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738648641307946646, guid: 8973428d13df549249b2ed91fbc1eb9b, type: 3}
       propertyPath: sounds.Array.data[16].clip
       value: 
       objectReference: {fileID: 8300000, guid: cd93ede648a03c543b958632ef43ffd6, type: 3}

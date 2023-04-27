@@ -25,9 +25,9 @@ public class FallingBlock : MonoBehaviour
         Vector2 location = transform.position;
         location.y = location.y - 0.1f * Time.deltaTime;
         blockRigidbody.MovePosition(location);
-        audioManager.Play("Waa");
-        yield return new WaitForSecondsRealtime(0.5f);
-        audioManager.Stop("Waa");
+        //audioManager.Play("Mario Waa 1");
+        //yield return new WaitForSecondsRealtime(0.5f);
+        //audioManager.Stop("Mario Waa 1");
         Debug.Log("End of Tumble");
     }
 
