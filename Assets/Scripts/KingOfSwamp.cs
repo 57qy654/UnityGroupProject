@@ -41,6 +41,29 @@ public class KingOfSwamp : Koopa
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) // checks when player triggers the box collider 2D, only relevant when inside shell
+    {
+        if (shelled && other.CompareTag("Player"))
+        {
+
+            Player player = other.GetComponent<Player>(); // create reference for player / mario
+
+            if (player.starpower) // checks if the player is in starpower, if so, hits koopa shell
+            {
+                Hit();
+                PlayerMovement mario = GameObject.Find("Mario").GetComponent<PlayerMovement>();
+                mario.velocity = Vector2.zero;
+                mario.moveSpeed = 0f;
+                FallingBlock fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
+                StartCoroutine(fallingBlock.Tumble());
+            }
+            else
+            {
+                player.Hit();
+            }
+        }
+    }
+
     private IEnumerator EnterShellAfterDelay(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
