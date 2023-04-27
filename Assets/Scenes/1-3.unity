@@ -1001,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6963745913214604210, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
 --- !u!4 &212386419 stripped
@@ -3096,6 +3100,10 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 212386419}
+    - target: {fileID: 827637104963955051, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: huntRadius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_Name
       value: Cerberus
@@ -3103,6 +3111,14 @@ PrefabInstance:
     - target: {fileID: 2519154588636839049, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_TagString
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265157892682288936, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: cooldown
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265157892682288936, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5265157892682288936, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: velocity.x
@@ -3118,7 +3134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6048822061274830910, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 180
+      value: 183.13
       objectReference: {fileID: 0}
     - target: {fileID: 6048822061274830910, guid: 3ff7876be6cae5044b0ac60b50e9a3ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6662,7 +6678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5987206807527370899, guid: e19231b2aae07e74197bc91e92401d9a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5987206807527370901, guid: e19231b2aae07e74197bc91e92401d9a, type: 3}
       propertyPath: m_RootOrder
