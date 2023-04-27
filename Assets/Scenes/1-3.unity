@@ -1002,8 +1002,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963745913214604210, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
-      propertyPath: m_Enabled
+      propertyPath: cooldown
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963745913214604210, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
