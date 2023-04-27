@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     }
 
     // function that kills mario
-    private void Death()
+    public void Death()
     {
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;

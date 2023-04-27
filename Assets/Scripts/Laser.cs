@@ -9,7 +9,7 @@ public class Laser : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
-            player.Hit();
+            player.Death();
         }
     }
 }
