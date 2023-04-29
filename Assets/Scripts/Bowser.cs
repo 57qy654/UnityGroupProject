@@ -143,6 +143,7 @@ public class Bowser : MonoBehaviour
     }
     protected void Flatten()
     {
+        
         GetComponent<Collider2D>().enabled = false; // disables bowser collider
         GetComponent<EntityMovement>().enabled = false; // disables goomba movement
         GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations

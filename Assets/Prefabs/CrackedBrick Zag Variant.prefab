@@ -492,7 +492,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1241488634437574120, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_Name
-      value: CrackedBrick Zag
+      value: CrackedBrick Zag Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1533845907850176165, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_Size.x
@@ -504,15 +504,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 98.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalRotation.w
@@ -520,15 +520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6763179084190930386, guid: df80d15ebf93a4221997593f6a591c06, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
