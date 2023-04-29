@@ -9,14 +9,22 @@ public class PrincessPeach : MonoBehaviour
     // When Mario kills Bowser, Princess peach will come running to Mario
 
 
-    public GameObject Mario;
-    public GameObject Bowser;
+    private GameObject mario;
+    //public GameObject Bowser;
+    private GameObject bowser;
+    private bool run = false;
 
+    void Start()
+    {
+        bowser = GameObject.FindGameObjectWithTag("Boss");
+        mario = GameObject.FindGameObjectWithTag("Player");
+    }
     private void Update()
     {
-        if (Bowser == null)
+        if (bowser == null)
         {
-            Vector3 direction = Mario.transform.position - transform.position;
+            
+            Vector3 direction = mario.transform.position - transform.position;
 
             float distance = direction.magnitude;
             direction.Normalize();
