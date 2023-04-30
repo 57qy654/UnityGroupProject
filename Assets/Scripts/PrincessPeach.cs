@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PrincessPeach : MonoBehaviour
 {
@@ -28,8 +29,17 @@ public class PrincessPeach : MonoBehaviour
 
             float distance = direction.magnitude;
             direction.Normalize();
+
             transform.position += direction * Time.deltaTime * 5.0f;
+            StartCoroutine(WinMenu("Menu"));
         }
+    }
+
+    private IEnumerator WinMenu(string sceneName)
+    {
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(sceneName);
     }
 
 }

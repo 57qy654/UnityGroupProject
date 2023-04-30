@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private DeathAnimation deathAnimation;
     // reference to mario's capsule collider
     private CapsuleCollider2D capsuleCollider;
-    private ShootSomething canShoot;
+    public ShootSomething canShoot;
 
     // determines if mario is in big version or not
     public bool big => bigRenderer.enabled;
@@ -98,6 +98,10 @@ public class Player : MonoBehaviour
     // function to change mario sprite to ice power
     public void Ice()
     {
+        GameObject marioObject = GameObject.Find("Mario");
+        ShootSomething shootSomething = marioObject.GetComponent<ShootSomething>();
+        shootSomething.enabled = true;
+
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         iceRenderer.enabled = true;
@@ -127,8 +131,12 @@ public class Player : MonoBehaviour
     }
 
     // function to get rid of ice sprite
-    private void DeIce()
+    public void DeIce()
     {
+        GameObject marioObject = GameObject.Find("Mario");
+        ShootSomething shootSomething = marioObject.GetComponent<ShootSomething>();
+        shootSomething.enabled = false;
+
         FindObjectOfType<AudioManager>().Play("PowerDown");
         smallRenderer.enabled = false;
         bigRenderer.enabled = true;

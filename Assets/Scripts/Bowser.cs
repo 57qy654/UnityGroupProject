@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class Bowser : MonoBehaviour
 {
@@ -24,7 +25,15 @@ public class Bowser : MonoBehaviour
     Transform playerTransform;
     public int count = 0;
     public Sprite BowserDead;
-    
+    public bool canFire = true;
+    public GameObject iceFlower;
+    public GameObject iceFlower2;
+    public AudioSource audioSource;
+
+
+    public Player marioScript;
+
+    private ShootSomething shootSomething; // reference to script that makes boss shoot fireballs
 
 
     private int currentHealth;
@@ -40,6 +49,10 @@ public class Bowser : MonoBehaviour
         playerTransform = player.GetComponent<Transform>();
         float bowserX = transform.position.x;
         float bowserY = transform.position.y;
+
+        shootSomething = GetComponent<ShootSomething>();
+        shootSomething.CanShoot = true;
+        marioScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         // reference to gameManager
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -74,14 +87,9 @@ public class Bowser : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
 
-        if (Time.time - lastFireballTimes > fireballDelay)
+        if (Time.time - lastFireballTimes > fireballDelay && canFire)
         {
-            Vector3 spawnPosition = transform.position + new Vector3(0, fireballOffset, 0);
-            GameObject fireballClone = Instantiate(FireBall, spawnPosition, transform.rotation);
-            FindObjectOfType<AudioManager>().Play("FireBall");
-            Rigidbody2D rb = fireballClone.GetComponent<Rigidbody2D>();
-            rb.velocity = (playerTransform.position - transform.position).normalized * fireballSpeed;
-            lastFireballTimes = Time.time;
+            BossShoot();
         }
     }
 
@@ -100,54 +108,60 @@ public class Bowser : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))  // checks what goomba collides with
         {
             Player player = collision.gameObject.GetComponent<Player>(); // create reference to player script so you can call the player to get hit
-
-            if (player.starpower) // checks if the player is in starpower, if so, hits goomba
-            {
-                count++;
-                if (count == 3)
-                {
-                    Hit();
-                    gameManager.NextLevel();
-                }
-            }
-            else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
-            {
-                count++;
-                if (count == 3)
-                {
-                    Hit();
-                    FindObjectOfType<AudioManager>().Play("BowserHit");
-                    gameManager.NextLevel();
-                }
-            }
-            else
-            {
-                player.Hit();
-            }
+            player.Hit();
         }
 
+        if (collision.gameObject.CompareTag("Ice"))
+        {
+            count++;
+            FindObjectOfType<AudioManager>().Play("BowserHit");
+            if (count == 1)
+            {
+                Spawner spawnerReference = GameObject.Find("Spawning").GetComponent<Spawner>(); //create reference to spawning object and spawn script
+
+                spawnerReference.SpawnEnemy(); // call the spawn method that spawns enemys
+                iceFlower.SetActive(true);
+                shootSomething.cooldown = 2f;
+                marioScript.Hit();                           
+            }
+            if (count == 2)
+            {
+                Spawner spawnerReference = GameObject.Find("Spawning").GetComponent<Spawner>(); //create reference to spawning object and spawn script
+
+                spawnerReference.SpawnEnemy(); // call the spawn method that spawns enemys
+                iceFlower2.SetActive(true);
+                shootSomething.cooldown = 1f;
+                marioScript.Hit();
+
+            }
+            if (count == 3)
+            {
+                Hit();
+                audioSource.enabled = false;
+                AudioManager audioManager = FindObjectOfType<AudioManager>();
+                audioManager.Play("YouWin");
+            }
+        }
+            
     }
 
     protected void Hit()
     {
+        canFire = false;
         FindObjectOfType<AudioManager>().Play("BowserDie");
         GetComponent<Collider2D>().enabled = false; // disables bowser collider
-        //GetComponent<EntityMovement>().enabled = false; // disables goomba movement
-        GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
+        GetComponent<AnimatedSprite>().enabled = false; // disables  animations
         GetComponent<SpriteRenderer>().sprite = BowserDead; // updates sprite hit bowser
 
-        //GetComponent<AnimatedSprite>().enabled = false; // reference to animated sprite script, stops animations
-        //GetComponent<DeathAnimation>().enabled = true; // reference to death animation script, kills goomba and does the death animation
-        Destroy(gameObject, 3f); // destroy dead goomba after 3 seconds
+        Destroy(gameObject, 0.5f); // destroy dead goomba after 3 seconds
+        FindObjectOfType<AudioManager>().Stop("BowserDie");
 
     }
-    protected void Flatten()
+
+    public void BossShoot()
     {
-        
-        GetComponent<Collider2D>().enabled = false; // disables bowser collider
-        GetComponent<EntityMovement>().enabled = false; // disables goomba movement
-        GetComponent<AnimatedSprite>().enabled = false; // disables goomba animations
-        GetComponent<SpriteRenderer>().sprite = BowserDead; // updates sprite hit bowser
-        Destroy(gameObject, 0.5f); // bowser dies after 3 seconds
+        shootSomething.Fire2();
     }
+
+   
 }

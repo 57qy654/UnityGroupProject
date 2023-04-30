@@ -35,7 +35,7 @@ public class IceBall : MonoBehaviour
         Player player = col.gameObject.GetComponent<Player>(); // reference to player script
         GameObject thisProjectile = gameObject; // reference to the game object this scripts attached to
 
-        FindObjectOfType<AudioManager>().Play("IceHit");
+        //FindObjectOfType<AudioManager>().Play("IceHit");
 
         if (thisProjectile.name == "FireBomb(Clone)")
         {
@@ -48,9 +48,26 @@ public class IceBall : MonoBehaviour
             }
             if (col.collider.tag == "Ground")
             {
-                Debug.Log("Hit!");
+                Debug.Log("Hit1!");
                 Explode();
                 FindObjectOfType<AudioManager>().Play("IceHit");
+            }
+        }
+        if (thisProjectile.name == "FireBalI(Clone)")
+        {
+            if (col.collider.tag == "Player")
+            {
+
+                player.Hit();
+                Explode();
+                FindObjectOfType<AudioManager>().Play("IceHit");
+            }
+            if (col.collider.tag == "Ground")
+            {
+                Debug.Log("Hit2!");
+                Explode();
+                //FindObjectOfType<AudioManager>().Play("Fireball");
+                //if (thisProjectile.name == "FireBalI(Clone)")
             }
         }
         else
@@ -72,24 +89,7 @@ public class IceBall : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("IceHit");
             }
         }
-        /*
-        // checks if iceball collides with an enemy and kills it if it does
-        if (col.collider.tag=="Enemy")
-        {
 
-            Destroy(col.gameObject);
-            Explode();
-            FindObjectOfType<AudioManager>().Play("IceHit");
-        }
-
-        // deletes iceball when it comes in contact with a collider
-        if (col.contacts[0].normal.x!=0)
-        {
-            Debug.Log("Hit!");
-            Explode();
-            FindObjectOfType<AudioManager>().Play("IceHit");
-        }
-        */
     }
 
     // function to delete game objects

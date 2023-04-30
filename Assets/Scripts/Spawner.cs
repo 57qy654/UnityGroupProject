@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
         }
 
         Invoke("SpawnEnemy", timeInBetweenSpawn); // spawns enemys for the random time
-        Invoke("Stop", 8f); // stops enemys from spawning after 8 seconds
+        Invoke("Stop", spawnTime); // stops enemys from spawning after 8 seconds
         if (spawnerFinish == true)
         {
             // done spawning

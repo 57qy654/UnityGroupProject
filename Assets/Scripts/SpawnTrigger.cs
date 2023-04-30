@@ -6,7 +6,6 @@ public class SpawnTrigger : MonoBehaviour
 {
     public GameObject spawning;
 
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

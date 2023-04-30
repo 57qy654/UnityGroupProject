@@ -967,11 +967,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 156.5
+      value: -21.7
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 71.3
       objectReference: {fileID: 0}
     - target: {fileID: 6855917859170148586, guid: 8c2b128f642fb4d9182aa54b4bf04685, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4481,11 +4481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2772767520644518634, guid: f2071f1f379f543aba1cae5a9101de89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 157.503
+      value: 147.3
       objectReference: {fileID: 0}
     - target: {fileID: 2772767520644518634, guid: f2071f1f379f543aba1cae5a9101de89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0099134
+      value: 9.57
       objectReference: {fileID: 0}
     - target: {fileID: 2772767520644518634, guid: f2071f1f379f543aba1cae5a9101de89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5139,7 +5139,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c79192fb488e2341bea59bd5f6a5b5d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.04
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7591,6 +7591,10 @@ PrefabInstance:
       value: Spawning
       objectReference: {fileID: 0}
     - target: {fileID: 8779810644097852617, guid: 8c5ba955f01945b4fbb381ae6ffca6f3, type: 3}
+      propertyPath: spawnTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779810644097852617, guid: 8c5ba955f01945b4fbb381ae6ffca6f3, type: 3}
       propertyPath: spawnerFinish
       value: 0
       objectReference: {fileID: 0}
@@ -8582,7 +8586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058351442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 156.7, y: 6.5, z: -10}
+  m_LocalPosition: {x: -14, y: 6.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

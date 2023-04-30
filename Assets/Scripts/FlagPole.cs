@@ -12,14 +12,16 @@ public class FlagPole : MonoBehaviour
     public Transform castle;
     public float speed = 6f;
     public int nextWorld = 1;
-    public int nextStage = 1; 
+    public int nextStage = 1;
+    public AudioSource audioSource;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             AudioManager audioManager = FindObjectOfType<AudioManager>();
-            audioManager.Stop("FirstTheme");
+            audioSource.enabled = false;
+            //audioManager.Stop("FirstTheme");
             audioManager.Play("LevelComplete");
             StartCoroutine(MoveTo(flag, poleBottom.position));
             StartCoroutine(LevelCompleteSequence(other.transform));

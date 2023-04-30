@@ -17,12 +17,8 @@ public class GuardianOfHell : Goomba
     public int count = 0;   // variable that determines boss healthbar
     private bool isMovingLeft = true;
     private bool hunt;  // variable for attack
-
     private ShootSomething shootSomething; // reference to script that makes boss shoot fireballs
-
-    // Start is called before the first frame update
-
-    
+   
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player"); // find player
@@ -36,12 +32,6 @@ public class GuardianOfHell : Goomba
 
         shootSomething = GetComponent<ShootSomething>();
         shootSomething.CanShoot = true;
-
-        //BossShoot();
-
-        //Physics2D.gravity = new Vector2(0, 0.0f); // set gravity to 0
-        //initialPosition = new Vector2(10, 8); // initialize start position
-        //markPosition = new Vector2(-10, 8);   // initialize target position
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
@@ -56,7 +46,7 @@ public class GuardianOfHell : Goomba
                 if (count == 3)
                 {
                     Hit();
-                    gameManager.NextLevel();
+                    GameManager.Instance.LoadLevel(1, 4);
                 }
             }
             else if (collision.transform.DotTest(transform, Vector2.down)) // checks if player lands on goomba head
@@ -65,8 +55,8 @@ public class GuardianOfHell : Goomba
                 if (count == 3)
                 {
                     Flatten();
-                    FindObjectOfType<AudioManager>().Play("Stomp");
-                    gameManager.NextLevel();
+                    FindObjectOfType<AudioManager>().Play("stomp");
+                    GameManager.Instance.LoadLevel(1, 4);
                 }
             }
             else
@@ -77,16 +67,14 @@ public class GuardianOfHell : Goomba
 
     }
 
-
-
     public void BossShoot()
     {
         if (go == true)
         {
             shootSomething.Fire();
         }
-        //shootSomething.Fire();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -105,10 +93,7 @@ public class GuardianOfHell : Goomba
         {
             if (isMovingLeft) // used so that Moveleft doesnt get called more than once so that it doesnt jitter when changing directions
             {
-                StartCoroutine(enemyPattern()); // start enemy pattern method
-                //BossShoot();
-                
-
+                StartCoroutine(enemyPattern()); // start enemy pattern method              
             }
             if (isMovingLeft != true && hunt == true)
             {
@@ -130,9 +115,6 @@ public class GuardianOfHell : Goomba
         GameObject theBoss = GameObject.Find("Cerberus"); // create reference to game object of the boss
         float distanceBetweenStartAndFlip = initialPosition.x - markPosition.x; // the distance between the 2 points
         EntityMovement bossMovement = theBoss.GetComponent<EntityMovement>(); // reference to entitymovement script of boss object
-        //ShootSomething bossAttack = theBoss.GetComponent<ShootSomething>();
-
-        
 
         // Calculate the time it takes to reach the point where it will turn right
         float timeTillFlip = (distanceBetweenStartAndFlip / speed);

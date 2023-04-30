@@ -69,6 +69,23 @@ public class ShootSomething : MonoBehaviour
         }
     }
 
+    public void Fire2()
+    {
+        if (canShoot)
+        {
+            // Set the offset to be 5 units below the transform's position
+            Vector2 adjustedOffset = offset - new Vector2(0f, 2.5f);
+
+            // Instantiate the projectile with the adjusted position
+            GameObject go = (GameObject)Instantiate(projectile, (Vector2)transform.position + adjustedOffset * transform.localScale.x, Quaternion.identity);
+
+            // Set the velocity of the projectile
+            go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
+
+            StartCoroutine(StartCooldown());
+        }
+    }
+
     public IEnumerator StartCooldown()
     {
         canShoot = false;
