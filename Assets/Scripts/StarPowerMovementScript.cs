@@ -1,8 +1,11 @@
-    using System.Collections;
-    using System.Collections.Generic;
-    using Newtonsoft.Json.Linq;
-    using Unity.VisualScripting;
-    using UnityEngine;
+// Written by Jude Pitschka
+// following Zig tutorial
+
+using System.Collections;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class StarPowerMovementScript : MonoBehaviour
 {
@@ -88,7 +91,6 @@ public class StarPowerMovementScript : MonoBehaviour
             }
         }
 
-        //Debug.Log("Velocity: " + velocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -1,3 +1,6 @@
+// Written by Jude Pitschka
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -231,7 +234,6 @@ public class Player : MonoBehaviour
             if (Time.frameCount % 4 == 0)
             {
                 activeRenderer.spriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
-                //FindObjectOfType<AudioManager>().Play("Starpower");
             }
 
             
@@ -247,9 +249,7 @@ public class Player : MonoBehaviour
     private IEnumerator StarpowerAudio(float duration)
     {
         AudioManager audioManager = FindObjectOfType<AudioManager>();
-        //audioManager.Play("Starpower");
         yield return new WaitForSeconds(duration);
-        //audioManager.Stop("Starpower");
     }
 
 

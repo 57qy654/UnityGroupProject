@@ -1,3 +1,5 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,7 +59,6 @@ public class FireBall : MonoBehaviour
         {
             Destroy(this.gameObject);
             Debug.Log("Collider hit!");
-            //FindObjectOfType<AudioManager>().Play("ShellRicochet");
 
         }
 
@@ -71,7 +72,6 @@ public class FireBall : MonoBehaviour
     {
         Player player = col.gameObject.GetComponent<Player>();
         rigidbody.velocity = new Vector2(velocity.x, -velocity.y);
-        //FindObjectOfType<AudioManager>().Play("IceHit");
 
         if(col.collider.tag == "Player" && !player.starpower)
         {
@@ -84,7 +84,6 @@ public class FireBall : MonoBehaviour
 
             Destroy(col.gameObject);
             Destroy(this.gameObject);
-            //FindObjectOfType<AudioManager>().Play("IceHit");
         }
 
         // deletes iceball when it comes in contact with a collider
@@ -93,7 +92,6 @@ public class FireBall : MonoBehaviour
             if (col.contacts[0].normal.x != 0)
             {
                 Destroy(this.gameObject);
-                //FindObjectOfType<AudioManager>().Play("IceHit");
             }
         }
         

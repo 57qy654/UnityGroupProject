@@ -1,3 +1,5 @@
+// Written By Jude Pitschka, William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +14,6 @@ public class IceBall : MonoBehaviour
     void Start()
     {
         // sets the ridigbody2d of the iceball eqaul to its component
-        //GameObject thisProjectile = gameObject;
         rb = GetComponent<Rigidbody2D>();
         velocity = rb.velocity;
     }
@@ -34,8 +35,6 @@ public class IceBall : MonoBehaviour
 
         Player player = col.gameObject.GetComponent<Player>(); // reference to player script
         GameObject thisProjectile = gameObject; // reference to the game object this scripts attached to
-
-        //FindObjectOfType<AudioManager>().Play("IceHit");
 
         if (thisProjectile.name == "FireBomb(Clone)")
         {
@@ -66,8 +65,6 @@ public class IceBall : MonoBehaviour
             {
                 Debug.Log("Hit2!");
                 Explode();
-                //FindObjectOfType<AudioManager>().Play("Fireball");
-                //if (thisProjectile.name == "FireBalI(Clone)")
             }
         }
         else

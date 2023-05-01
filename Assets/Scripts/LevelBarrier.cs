@@ -1,3 +1,5 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +17,6 @@ public class LevelBarrier : MonoBehaviour
             audioManager.Stop("Jungle");
             other.gameObject.SetActive(false);
             GameManager.Instance.LoadLevel(nextWorld, nextStage);
-            //GameManager.Instance.NextLevel();
         }
         else
         {

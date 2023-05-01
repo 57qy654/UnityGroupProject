@@ -1,3 +1,5 @@
+// Written by Jude Pitschka
+
 using UnityEngine.Audio;
 using UnityEngine;
 

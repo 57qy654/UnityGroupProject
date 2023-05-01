@@ -1,3 +1,5 @@
+// Written by Jude Pitschka, William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,33 +40,19 @@ public class ShootSomething : MonoBehaviour
 
             StartCoroutine(StartCooldown());
         }
-
-        /*
-        IEnumerator CanShoot()
-        {
-            canShoot = false;
-            yield return new WaitForSeconds(cooldown);
-            canShoot = true;
-        }
-        */
-
-
     }
 
     public void Fire()
     {
-        //CanShoot = true;
+        
 
         if (canShoot)
         {
-            //yield return new WaitForSeconds(4.5f);
+            
             GameObject go = (GameObject)Instantiate(projectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity);
 
             go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
 
-
-
-            //FindObjectOfType<AudioManager>().Play("IceThrow");
             StartCoroutine(StartCooldown());
         }
     }

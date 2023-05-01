@@ -1,8 +1,10 @@
+// Written by William Boguslawski
+// spawner code written by William Boguslawski
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 
 public class Goomba : MonoBehaviour
 {
@@ -55,7 +57,7 @@ public class Goomba : MonoBehaviour
         if (goombaSpawn != null)
         {
             goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
-                                          //FindObjectOfType<AudioManager>().Play("stomp");
+                                          
 
             //check if spawner done
             // without enemies present logic, the spawner would just stop when the spawn time reached 0
@@ -79,7 +81,7 @@ public class Goomba : MonoBehaviour
         if (goombaSpawn != null)
         {
             goombaSpawn.enemiesPresent--; // when enemy dies, tells spawner that enemy is dead
-                                          //FindObjectOfType<AudioManager>().Play("stomp");
+                                          
 
             //check if spawner done
             // without enemies present logic, the spawner would just stop when the spawn time reached 0

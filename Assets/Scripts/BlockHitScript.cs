@@ -1,3 +1,6 @@
+// Written by Jessica Nguyen, Jude Pitschka
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

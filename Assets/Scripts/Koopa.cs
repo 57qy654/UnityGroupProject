@@ -1,3 +1,6 @@
+// Written by William Boguslawski
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,8 +59,6 @@ public class Koopa : MonoBehaviour
                     player.Hit();
                 }
 
-                //player.Hit();
-
             }
         }
         else if (!shelled && other.gameObject.layer == LayerMask.NameToLayer("Shell")) // if koopa is not shelled and collides with another shell
@@ -106,17 +107,4 @@ public class Koopa : MonoBehaviour
 
     }
 
-    /*
-     
-    extra option to add if you want that destroys koopa shell if it goes out of vision
-    private void OnBecameInvisible()
-    {
-        if (shellPushed)
-        {
-            Destroy(gameObject);
-        }
-
-    }
-
-    */
 }

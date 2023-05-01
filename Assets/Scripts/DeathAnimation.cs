@@ -1,6 +1,10 @@
+// Written by William Boguslawski
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 // same death animation for all entitys
 public class DeathAnimation : MonoBehaviour
 {

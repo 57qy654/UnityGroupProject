@@ -1,4 +1,5 @@
 // Written By Jessica Nguyen
+// following Zig tutorial
 // 03/10/2023
 
 using System.Collections;
@@ -35,7 +36,6 @@ public class Pipe : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         bool underground = connection.position.y < 0f;
-        //Camera.main.GetComponent<SideScrolling>().SetUnderGround(underground);
 
         if (exitDirection != Vector3.zero)
         {

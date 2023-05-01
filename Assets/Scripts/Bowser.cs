@@ -1,3 +1,5 @@
+// Written by William Boguslawski, Jude Pitschka, Jessica Nguyen
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,8 +21,6 @@ public class Bowser : MonoBehaviour
     public float fireballOffset = -3f;
     // You can change the max health if needed 
     public int maxHealth = 3;
-    // new transform object to get the player's coordinates
-    //public GameObject player = GameObject.Find("Player");
     private Vector2 velocity;
     Transform playerTransform;
     public int count = 0;

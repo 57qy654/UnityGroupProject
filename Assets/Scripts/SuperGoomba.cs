@@ -1,9 +1,8 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// Use inheritance and method overriding instead
-// public class SuperGoomba : Goomba (dont need mono behavior as it inherits from goomba)
 
 public class SuperGoomba : MonoBehaviour
 {

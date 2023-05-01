@@ -1,3 +1,6 @@
+// Written by William Boguslawski
+// following Zig tutorial
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -68,7 +71,6 @@ public class GameManager : MonoBehaviour
         this.stage = stage;
 
         SceneManager.LoadScene($"{world}-{stage}"); // loads the given stage level
-        //SceneManager.LoadScene(SceneManager.CurrentScene.BuildIndex); // loads the given stage level
     }
 
     public void NextLevel()

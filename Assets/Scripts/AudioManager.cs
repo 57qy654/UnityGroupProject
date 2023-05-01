@@ -1,3 +1,5 @@
+// Written by Jude Pitschka, William Boguslawski
+
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
@@ -7,7 +9,6 @@ public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;
-    //private AudioSource audioSource;
     public AudioClip desiredClip;
 
     public static AudioManager instance;
@@ -31,7 +32,6 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
-            //s.source.loop = s.loop; // set the loop property of the AudioSource
         }
 
     }

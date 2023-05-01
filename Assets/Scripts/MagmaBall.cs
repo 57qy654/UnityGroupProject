@@ -1,3 +1,5 @@
+// Written by Jude Pitschka
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,7 +55,6 @@ public class MagmaBall : MonoBehaviour
             if (!player.starpower)
                 player.Hit();
 
-            //FindObjectOfType<AudioManager>().Play("IceHit");
         }
 
        

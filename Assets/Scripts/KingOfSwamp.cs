@@ -1,21 +1,16 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class KingOfSwamp : Koopa
 {
-    //public Sprite shellSprite;
-    //public float shellSpeed = 15;
     private bool startPattern = true;
     private bool nextStage = false;
     private float delayTime = 1.9f;
     private float delayTime2 = 2.1f;
-    //private bool shelled; // inficate if koopa is in shell or not
-    //private bool shellPushed; // indicate if koopa shell is moving or not
     private EntityMovement visible;
-    //public FallingBlock fall;
-
-
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -107,7 +102,6 @@ public class KingOfSwamp : Koopa
     void Start()
     {
         visible = GetComponent<EntityMovement>();
-        //fallingBlock = GameObject.Find("FallingBlock (1)").GetComponent<FallingBlock>();
     }
 
 }

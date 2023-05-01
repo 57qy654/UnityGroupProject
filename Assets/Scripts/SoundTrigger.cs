@@ -1,3 +1,5 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +12,6 @@ public class SoundTrigger : MonoBehaviour
         {
 
             FindObjectOfType<AudioManager>().Play("Mario Waa 1");
-            //audioManager.Play("Mario Waa 1");
 
 
         }

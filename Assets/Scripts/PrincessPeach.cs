@@ -1,3 +1,5 @@
+// Written by Jessica Nguyen, William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +13,7 @@ public class PrincessPeach : MonoBehaviour
 
 
     private GameObject mario;
-    //public GameObject Bowser;
     private GameObject bowser;
-    private bool run = false;
 
     void Start()
     {

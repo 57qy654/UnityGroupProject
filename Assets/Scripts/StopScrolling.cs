@@ -1,12 +1,11 @@
+// Written by William Boguslawski
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StopScrolling : MonoBehaviour
 {
-
-
-    //Camera mainCamera = Camera.main;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
